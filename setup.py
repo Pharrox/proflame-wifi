@@ -40,7 +40,10 @@ setuptools.setup(
     install_requires=['websockets>=12.0'],
     extras_require={
         'dev': ['check-manifest'],
-        # 'test': ['coverage'],
+        'test': [
+            'coverage',
+            'pytest-cov',
+        ],
     },
     entry_points={
         'console_scripts': [
