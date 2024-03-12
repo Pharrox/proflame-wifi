@@ -22,7 +22,7 @@ jobs:
         env:
           CUR_VERSION: ${{ github.ref }}
           TARGET: ${{ github.workspace }}/src/proflame_wifi/__init__.py
-        run: sed -ri "s/__version__\s*=\s[\"'][^\"']+[\"']/__version__ = '${NEW_VERSION}'/" "${TARGET}"
+        run: sed -ri "s/__version__\s*=\s[\"'][^\"']+[\"']/__version__ = '${NEW_VERSION#v}'/" "${TARGET}"
       - name: Build
         run: python setup.py sdist bdist_wheel
       - name: Upload to Release
