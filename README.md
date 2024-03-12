@@ -18,4 +18,4 @@ Client for connecting to and interacting with Proflame fireplaces that have the 
 [license-shield]: https://img.shields.io/github/license/Pharrox/hass-proflame-connect-wifi.svg?style=for-the-badge
 [maintenance-shield]: https://img.shields.io/badge/maintainer-Kevin%20Lucas%20%40Pharrox-blue.svg?style=for-the-badge
 [releases-shield]: https://img.shields.io/github/release/Pharrox/hass-proflame-connect-wifi.svg?style=for-the-badge
-[releases]: https://github.com/Pharrox/hass-proflame-connect-wifi/releases
+[releases]: https://github.com/Pharrox/proflame-wifi/releases
