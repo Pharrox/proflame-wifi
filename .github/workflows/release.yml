@@ -20,7 +20,7 @@ jobs:
       - name: Adjust version number
         shell: bash
         env:
-          CUR_VERSION: ${{ github.ref }}
+          CUR_VERSION: ${{ github.event.release.tag_name }}
           TARGET: ${{ github.workspace }}/src/proflame_wifi/__init__.py
         run: sed -ri "s/__version__\s*=\s[\"'][^\"']+[\"']/__version__ = '${NEW_VERSION#v}'/" "${TARGET}"
       - name: Build
