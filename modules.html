@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -15,9 +15,9 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=f6245a2f"></script>
+        <script src="_static/documentation_options.js?v=d45e8c67"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -77,21 +77,179 @@
            <div itemprop="articleBody">
              
   <section id="proflame-wifi">
-<h1>proflame_wifi<a class="headerlink" href="#proflame-wifi" title="Permalink to this heading"></a></h1>
+<h1>proflame_wifi<a class="headerlink" href="#proflame-wifi" title="Link to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="proflame_wifi.html">proflame_wifi package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="proflame_wifi.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="proflame_wifi.html#proflame-wifi-client-module">proflame_wifi.client module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="proflame_wifi.html#proflame-wifi-connection-module">proflame_wifi.connection module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="proflame_wifi.html#proflame-wifi-const-module">proflame_wifi.const module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="proflame_wifi.html#proflame-wifi-get-state-module">proflame_wifi.get_state module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="proflame_wifi.html#proflame-wifi-manager-module">proflame_wifi.manager module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="proflame_wifi.html#proflame-wifi-set-state-module">proflame_wifi.set_state module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="proflame_wifi.html#proflame-wifi-strings-module">proflame_wifi.strings module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="proflame_wifi.html#proflame-wifi-temperature-module">proflame_wifi.temperature module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="proflame_wifi.html#proflame-wifi-util-module">proflame_wifi.util module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="proflame_wifi.html#module-contents">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proflame_wifi.html#module-proflame_wifi.client">proflame_wifi.client module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.client.ClientStatus"><code class="docutils literal notranslate"><span class="pre">ClientStatus</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.client.ClientStatus.ACTIVE"><code class="docutils literal notranslate"><span class="pre">ClientStatus.ACTIVE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.client.ClientStatus.CONNECTED"><code class="docutils literal notranslate"><span class="pre">ClientStatus.CONNECTED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.client.ClientStatus.CONNECTING"><code class="docutils literal notranslate"><span class="pre">ClientStatus.CONNECTING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.client.ClientStatus.DISCONNECTED"><code class="docutils literal notranslate"><span class="pre">ClientStatus.DISCONNECTED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.client.ClientStatus.DISCONNECTING"><code class="docutils literal notranslate"><span class="pre">ClientStatus.DISCONNECTING</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.client.ProflameClient"><code class="docutils literal notranslate"><span class="pre">ProflameClient</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.client.ProflameClient.connect"><code class="docutils literal notranslate"><span class="pre">ProflameClient.connect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.client.ProflameClient.disconnect"><code class="docutils literal notranslate"><span class="pre">ProflameClient.disconnect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.client.ProflameClient.full_state"><code class="docutils literal notranslate"><span class="pre">ProflameClient.full_state</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.client.ProflameClient.get_state"><code class="docutils literal notranslate"><span class="pre">ProflameClient.get_state()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.client.ProflameClient.register_callback"><code class="docutils literal notranslate"><span class="pre">ProflameClient.register_callback()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.client.ProflameClient.set_state"><code class="docutils literal notranslate"><span class="pre">ProflameClient.set_state()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.client.ProflameClient.status"><code class="docutils literal notranslate"><span class="pre">ProflameClient.status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.client.ProflameClient.uri"><code class="docutils literal notranslate"><span class="pre">ProflameClient.uri</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.client.ProflameClient.wait_for_active"><code class="docutils literal notranslate"><span class="pre">ProflameClient.wait_for_active()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.client.ProflameClient.wait_for_state_available"><code class="docutils literal notranslate"><span class="pre">ProflameClient.wait_for_state_available()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="proflame_wifi.html#module-proflame_wifi.connection">proflame_wifi.connection module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.connection.ConnectionManager"><code class="docutils literal notranslate"><span class="pre">ConnectionManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.connection.ConnectionManager.PING_INTERVAL"><code class="docutils literal notranslate"><span class="pre">ConnectionManager.PING_INTERVAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.connection.ConnectionManager.PING_MESSAGE"><code class="docutils literal notranslate"><span class="pre">ConnectionManager.PING_MESSAGE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.connection.ConnectionManager.connect"><code class="docutils literal notranslate"><span class="pre">ConnectionManager.connect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.connection.ConnectionManager.connected"><code class="docutils literal notranslate"><span class="pre">ConnectionManager.connected</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.connection.ConnectionManager.disconnect"><code class="docutils literal notranslate"><span class="pre">ConnectionManager.disconnect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.connection.ConnectionManager.register_connect_handler"><code class="docutils literal notranslate"><span class="pre">ConnectionManager.register_connect_handler()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.connection.ConnectionManager.register_disconnect_handler"><code class="docutils literal notranslate"><span class="pre">ConnectionManager.register_disconnect_handler()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.connection.ConnectionManager.register_recv_handler"><code class="docutils literal notranslate"><span class="pre">ConnectionManager.register_recv_handler()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.connection.ConnectionManager.send"><code class="docutils literal notranslate"><span class="pre">ConnectionManager.send()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.connection.ConnectionManager.status"><code class="docutils literal notranslate"><span class="pre">ConnectionManager.status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.connection.ConnectionManager.uri"><code class="docutils literal notranslate"><span class="pre">ConnectionManager.uri</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.connection.ConnectionManager.wait_for_connect"><code class="docutils literal notranslate"><span class="pre">ConnectionManager.wait_for_connect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.connection.ConnectionManager.wait_for_disconnect"><code class="docutils literal notranslate"><span class="pre">ConnectionManager.wait_for_disconnect()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.connection.ConnectionStatus"><code class="docutils literal notranslate"><span class="pre">ConnectionStatus</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.connection.ConnectionStatus.CONNECTED"><code class="docutils literal notranslate"><span class="pre">ConnectionStatus.CONNECTED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.connection.ConnectionStatus.CONNECTING"><code class="docutils literal notranslate"><span class="pre">ConnectionStatus.CONNECTING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.connection.ConnectionStatus.DISCONNECTED"><code class="docutils literal notranslate"><span class="pre">ConnectionStatus.DISCONNECTED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.connection.ConnectionStatus.DISCONNECTING"><code class="docutils literal notranslate"><span class="pre">ConnectionStatus.DISCONNECTING</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="proflame_wifi.html#module-proflame_wifi.const">proflame_wifi.const module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.ApiAttrs"><code class="docutils literal notranslate"><span class="pre">ApiAttrs</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.ApiAttrs.AUXILIARY"><code class="docutils literal notranslate"><span class="pre">ApiAttrs.AUXILIARY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.ApiAttrs.BURNER_STATUS"><code class="docutils literal notranslate"><span class="pre">ApiAttrs.BURNER_STATUS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.ApiAttrs.CURRENT_TEMPERATURE"><code class="docutils literal notranslate"><span class="pre">ApiAttrs.CURRENT_TEMPERATURE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.ApiAttrs.FAN_SPEED"><code class="docutils literal notranslate"><span class="pre">ApiAttrs.FAN_SPEED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.ApiAttrs.FIRMWARE_REVISION"><code class="docutils literal notranslate"><span class="pre">ApiAttrs.FIRMWARE_REVISION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.ApiAttrs.FLAME_HEIGHT"><code class="docutils literal notranslate"><span class="pre">ApiAttrs.FLAME_HEIGHT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.ApiAttrs.FREE_HEAP"><code class="docutils literal notranslate"><span class="pre">ApiAttrs.FREE_HEAP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.ApiAttrs.LIGHT_BRIGHTNESS"><code class="docutils literal notranslate"><span class="pre">ApiAttrs.LIGHT_BRIGHTNESS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.ApiAttrs.MIN_FREE_HEAP"><code class="docutils literal notranslate"><span class="pre">ApiAttrs.MIN_FREE_HEAP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.ApiAttrs.OPERATING_MODE"><code class="docutils literal notranslate"><span class="pre">ApiAttrs.OPERATING_MODE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.ApiAttrs.PILOT_MODE"><code class="docutils literal notranslate"><span class="pre">ApiAttrs.PILOT_MODE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.ApiAttrs.REMOTE_CONTROL"><code class="docutils literal notranslate"><span class="pre">ApiAttrs.REMOTE_CONTROL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.ApiAttrs.SPLIT_FLOW"><code class="docutils literal notranslate"><span class="pre">ApiAttrs.SPLIT_FLOW</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.ApiAttrs.TARGET_TEMPERATURE"><code class="docutils literal notranslate"><span class="pre">ApiAttrs.TARGET_TEMPERATURE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.ApiAttrs.TEMPERATURE_UNIT"><code class="docutils literal notranslate"><span class="pre">ApiAttrs.TEMPERATURE_UNIT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.ApiAttrs.WIFI_SIGNAL_STR"><code class="docutils literal notranslate"><span class="pre">ApiAttrs.WIFI_SIGNAL_STR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.ApiControl"><code class="docutils literal notranslate"><span class="pre">ApiControl</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.ApiControl.CONN_ACK"><code class="docutils literal notranslate"><span class="pre">ApiControl.CONN_ACK</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.ApiControl.CONN_SYN"><code class="docutils literal notranslate"><span class="pre">ApiControl.CONN_SYN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.ApiControl.PING"><code class="docutils literal notranslate"><span class="pre">ApiControl.PING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.ApiControl.PONG"><code class="docutils literal notranslate"><span class="pre">ApiControl.PONG</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.OperatingMode"><code class="docutils literal notranslate"><span class="pre">OperatingMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.OperatingMode.MANUAL"><code class="docutils literal notranslate"><span class="pre">OperatingMode.MANUAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.OperatingMode.OFF"><code class="docutils literal notranslate"><span class="pre">OperatingMode.OFF</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.OperatingMode.SMART"><code class="docutils literal notranslate"><span class="pre">OperatingMode.SMART</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.OperatingMode.THERMOSTAT"><code class="docutils literal notranslate"><span class="pre">OperatingMode.THERMOSTAT</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.PilotMode"><code class="docutils literal notranslate"><span class="pre">PilotMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.PilotMode.CONTINUOUS"><code class="docutils literal notranslate"><span class="pre">PilotMode.CONTINUOUS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.PilotMode.INTERMITENT"><code class="docutils literal notranslate"><span class="pre">PilotMode.INTERMITENT</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.Preset"><code class="docutils literal notranslate"><span class="pre">Preset</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.Preset.MANUAL"><code class="docutils literal notranslate"><span class="pre">Preset.MANUAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.Preset.OFF"><code class="docutils literal notranslate"><span class="pre">Preset.OFF</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.Preset.SMART"><code class="docutils literal notranslate"><span class="pre">Preset.SMART</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.Preset.THERMOSTAT"><code class="docutils literal notranslate"><span class="pre">Preset.THERMOSTAT</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.TemperatureUnit"><code class="docutils literal notranslate"><span class="pre">TemperatureUnit</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.TemperatureUnit.CELSIUS"><code class="docutils literal notranslate"><span class="pre">TemperatureUnit.CELSIUS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.const.TemperatureUnit.FAHRENHEIT"><code class="docutils literal notranslate"><span class="pre">TemperatureUnit.FAHRENHEIT</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="proflame_wifi.html#module-proflame_wifi.get_state">proflame_wifi.get_state module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.get_state.get_state"><code class="docutils literal notranslate"><span class="pre">get_state()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.get_state.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="proflame_wifi.html#module-proflame_wifi.manager">proflame_wifi.manager module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager"><code class="docutils literal notranslate"><span class="pre">ProflameManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.connect"><code class="docutils literal notranslate"><span class="pre">ProflameManager.connect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.current_temperature"><code class="docutils literal notranslate"><span class="pre">ProflameManager.current_temperature</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.disconnect"><code class="docutils literal notranslate"><span class="pre">ProflameManager.disconnect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.fan_speed"><code class="docutils literal notranslate"><span class="pre">ProflameManager.fan_speed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.flame_height"><code class="docutils literal notranslate"><span class="pre">ProflameManager.flame_height</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.full_state"><code class="docutils literal notranslate"><span class="pre">ProflameManager.full_state</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.get_state"><code class="docutils literal notranslate"><span class="pre">ProflameManager.get_state()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.is_on"><code class="docutils literal notranslate"><span class="pre">ProflameManager.is_on()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.light_brightness"><code class="docutils literal notranslate"><span class="pre">ProflameManager.light_brightness</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.operating_mode"><code class="docutils literal notranslate"><span class="pre">ProflameManager.operating_mode</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.pilot_mode"><code class="docutils literal notranslate"><span class="pre">ProflameManager.pilot_mode</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.preset"><code class="docutils literal notranslate"><span class="pre">ProflameManager.preset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.register_callback"><code class="docutils literal notranslate"><span class="pre">ProflameManager.register_callback()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.set_fan_speed"><code class="docutils literal notranslate"><span class="pre">ProflameManager.set_fan_speed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.set_flame_height"><code class="docutils literal notranslate"><span class="pre">ProflameManager.set_flame_height()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.set_light_brightness"><code class="docutils literal notranslate"><span class="pre">ProflameManager.set_light_brightness()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.set_operating_mode"><code class="docutils literal notranslate"><span class="pre">ProflameManager.set_operating_mode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.set_pilot_mode"><code class="docutils literal notranslate"><span class="pre">ProflameManager.set_pilot_mode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.set_preset"><code class="docutils literal notranslate"><span class="pre">ProflameManager.set_preset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.set_state"><code class="docutils literal notranslate"><span class="pre">ProflameManager.set_state()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.set_target_temperature"><code class="docutils literal notranslate"><span class="pre">ProflameManager.set_target_temperature()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.status"><code class="docutils literal notranslate"><span class="pre">ProflameManager.status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.target_temperature"><code class="docutils literal notranslate"><span class="pre">ProflameManager.target_temperature</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.temperature_unit"><code class="docutils literal notranslate"><span class="pre">ProflameManager.temperature_unit</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.turn_off"><code class="docutils literal notranslate"><span class="pre">ProflameManager.turn_off()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.turn_off_fan"><code class="docutils literal notranslate"><span class="pre">ProflameManager.turn_off_fan()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.turn_off_light"><code class="docutils literal notranslate"><span class="pre">ProflameManager.turn_off_light()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.turn_on"><code class="docutils literal notranslate"><span class="pre">ProflameManager.turn_on()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.turn_on_fan"><code class="docutils literal notranslate"><span class="pre">ProflameManager.turn_on_fan()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.turn_on_light"><code class="docutils literal notranslate"><span class="pre">ProflameManager.turn_on_light()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.uri"><code class="docutils literal notranslate"><span class="pre">ProflameManager.uri</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.wait_for_active"><code class="docutils literal notranslate"><span class="pre">ProflameManager.wait_for_active()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.manager.ProflameManager.wait_for_state_available"><code class="docutils literal notranslate"><span class="pre">ProflameManager.wait_for_state_available()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="proflame_wifi.html#module-proflame_wifi.set_state">proflame_wifi.set_state module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.set_state.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.set_state.set_state"><code class="docutils literal notranslate"><span class="pre">set_state()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="proflame_wifi.html#module-proflame_wifi.strings">proflame_wifi.strings module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proflame_wifi.html#module-proflame_wifi.temperature">proflame_wifi.temperature module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.temperature.Temperature"><code class="docutils literal notranslate"><span class="pre">Temperature</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.temperature.Temperature.celcius"><code class="docutils literal notranslate"><span class="pre">Temperature.celcius()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.temperature.Temperature.fahrenheit"><code class="docutils literal notranslate"><span class="pre">Temperature.fahrenheit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.temperature.Temperature.to_celcius"><code class="docutils literal notranslate"><span class="pre">Temperature.to_celcius()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.temperature.Temperature.to_fahrenheit"><code class="docutils literal notranslate"><span class="pre">Temperature.to_fahrenheit()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="proflame_wifi.html#module-proflame_wifi.util">proflame_wifi.util module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="proflame_wifi.html#proflame_wifi.util.constrain"><code class="docutils literal notranslate"><span class="pre">constrain()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="proflame_wifi.html#module-proflame_wifi">Module contents</a></li>
 </ul>
 </li>
 </ul>

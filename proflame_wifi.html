@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -15,9 +15,9 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=f6245a2f"></script>
+        <script src="_static/documentation_options.js?v=d45e8c67"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -48,16 +48,49 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">proflame_wifi</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">proflame_wifi package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#proflame-wifi-client-module">proflame_wifi.client module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#proflame-wifi-connection-module">proflame_wifi.connection module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#proflame-wifi-const-module">proflame_wifi.const module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#proflame-wifi-get-state-module">proflame_wifi.get_state module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#proflame-wifi-manager-module">proflame_wifi.manager module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#proflame-wifi-set-state-module">proflame_wifi.set_state module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#proflame-wifi-strings-module">proflame_wifi.strings module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#proflame-wifi-temperature-module">proflame_wifi.temperature module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#proflame-wifi-util-module">proflame_wifi.util module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-proflame_wifi.client">proflame_wifi.client module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#proflame_wifi.client.ClientStatus"><code class="docutils literal notranslate"><span class="pre">ClientStatus</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#proflame_wifi.client.ProflameClient"><code class="docutils literal notranslate"><span class="pre">ProflameClient</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-proflame_wifi.connection">proflame_wifi.connection module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#proflame_wifi.connection.ConnectionManager"><code class="docutils literal notranslate"><span class="pre">ConnectionManager</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#proflame_wifi.connection.ConnectionStatus"><code class="docutils literal notranslate"><span class="pre">ConnectionStatus</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-proflame_wifi.const">proflame_wifi.const module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#proflame_wifi.const.ApiAttrs"><code class="docutils literal notranslate"><span class="pre">ApiAttrs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#proflame_wifi.const.ApiControl"><code class="docutils literal notranslate"><span class="pre">ApiControl</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#proflame_wifi.const.OperatingMode"><code class="docutils literal notranslate"><span class="pre">OperatingMode</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#proflame_wifi.const.PilotMode"><code class="docutils literal notranslate"><span class="pre">PilotMode</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#proflame_wifi.const.Preset"><code class="docutils literal notranslate"><span class="pre">Preset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#proflame_wifi.const.TemperatureUnit"><code class="docutils literal notranslate"><span class="pre">TemperatureUnit</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-proflame_wifi.get_state">proflame_wifi.get_state module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#proflame_wifi.get_state.get_state"><code class="docutils literal notranslate"><span class="pre">get_state()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#proflame_wifi.get_state.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-proflame_wifi.manager">proflame_wifi.manager module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#proflame_wifi.manager.ProflameManager"><code class="docutils literal notranslate"><span class="pre">ProflameManager</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-proflame_wifi.set_state">proflame_wifi.set_state module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#proflame_wifi.set_state.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#proflame_wifi.set_state.set_state"><code class="docutils literal notranslate"><span class="pre">set_state()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-proflame_wifi.strings">proflame_wifi.strings module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-proflame_wifi.temperature">proflame_wifi.temperature module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#proflame_wifi.temperature.Temperature"><code class="docutils literal notranslate"><span class="pre">Temperature</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-proflame_wifi.util">proflame_wifi.util module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#proflame_wifi.util.constrain"><code class="docutils literal notranslate"><span class="pre">constrain()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-proflame_wifi">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -90,39 +123,1340 @@
            <div itemprop="articleBody">
              
   <section id="proflame-wifi-package">
-<h1>proflame_wifi package<a class="headerlink" href="#proflame-wifi-package" title="Permalink to this heading"></a></h1>
+<h1>proflame_wifi package<a class="headerlink" href="#proflame-wifi-package" title="Link to this heading"></a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
 </section>
-<section id="proflame-wifi-client-module">
-<h2>proflame_wifi.client module<a class="headerlink" href="#proflame-wifi-client-module" title="Permalink to this heading"></a></h2>
+<section id="module-proflame_wifi.client">
+<span id="proflame-wifi-client-module"></span><h2>proflame_wifi.client module<a class="headerlink" href="#module-proflame_wifi.client" title="Link to this heading"></a></h2>
+<p>Low level functionality for interacting with Proflame fireplaces.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="proflame_wifi.client.ClientStatus">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">proflame_wifi.client.</span></span><span class="sig-name descname"><span class="pre">ClientStatus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/proflame_wifi/client.html#ClientStatus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.client.ClientStatus" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">StrEnum</span></code></p>
+<p>Enum that represents valid states of a Proflame connection.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.client.ClientStatus.ACTIVE">
+<span class="sig-name descname"><span class="pre">ACTIVE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ACTIVE'</span></em><a class="headerlink" href="#proflame_wifi.client.ClientStatus.ACTIVE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.client.ClientStatus.CONNECTED">
+<span class="sig-name descname"><span class="pre">CONNECTED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CONNECTED'</span></em><a class="headerlink" href="#proflame_wifi.client.ClientStatus.CONNECTED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.client.ClientStatus.CONNECTING">
+<span class="sig-name descname"><span class="pre">CONNECTING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CONNECTING'</span></em><a class="headerlink" href="#proflame_wifi.client.ClientStatus.CONNECTING" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.client.ClientStatus.DISCONNECTED">
+<span class="sig-name descname"><span class="pre">DISCONNECTED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DISCONNECTED'</span></em><a class="headerlink" href="#proflame_wifi.client.ClientStatus.DISCONNECTED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.client.ClientStatus.DISCONNECTING">
+<span class="sig-name descname"><span class="pre">DISCONNECTING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DISCONNECTING'</span></em><a class="headerlink" href="#proflame_wifi.client.ClientStatus.DISCONNECTING" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="proflame_wifi.client.ProflameClient">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">proflame_wifi.client.</span></span><span class="sig-name descname"><span class="pre">ProflameClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ping_interval</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callbacks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">NoReturn</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/proflame_wifi/client.html#ProflameClient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.client.ProflameClient" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Basic client used for interacting with Proflame fireplaces.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.client.ProflameClient.connect">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/client.html#ProflameClient.connect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.client.ProflameClient.connect" title="Link to this definition"></a></dt>
+<dd><p>Open a connection to the fireplace.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.client.ProflameClient.disconnect">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/client.html#ProflameClient.disconnect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.client.ProflameClient.disconnect" title="Link to this definition"></a></dt>
+<dd><p>Close the connection to the fireplace.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="proflame_wifi.client.ProflameClient.full_state">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">full_state</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#proflame_wifi.client.ProflameClient.full_state" title="Link to this definition"></a></dt>
+<dd><p>Retrieve a full copy of all the attributes reported by the fireplace.</p>
+<p>The fields in the returned object will vary depending on what the
+fireplace has reported.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A snapshot of the current fireplace state.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict[str, int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.client.ProflameClient.get_state">
+<span class="sig-name descname"><span class="pre">get_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attribute</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/client.html#ProflameClient.get_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.client.ProflameClient.get_state" title="Link to this definition"></a></dt>
+<dd><p>Get the state of a specific attribute by its name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>attribute</strong> (<em>str</em>) – The name of the fireplace attribute to retrieve.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The value of the requested attribute or None if the requested
+attribute has not been reported by the fireplace.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.client.ProflameClient.register_callback">
+<span class="sig-name descname"><span class="pre">register_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">NoReturn</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/client.html#ProflameClient.register_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.client.ProflameClient.register_callback" title="Link to this definition"></a></dt>
+<dd><p>Register a callback that will be invoked when a state change is
+reported by the fireplace.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>callback</strong> (<em>Callable</em><em>[</em><em>[</em><a class="reference internal" href="#proflame_wifi.client.ProflameClient" title="proflame_wifi.client.ProflameClient"><em>ProflameClient</em></a><em>, </em><em>str</em><em>, </em><em>int</em><em>]</em><em>, </em><em>NoReturn</em><em>]</em>) – The function to invoke whenever a state change is
+reported by the fireplace.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.client.ProflameClient.set_state">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attribute</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/client.html#ProflameClient.set_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.client.ProflameClient.set_state" title="Link to this definition"></a></dt>
+<dd><p>Set the state of a specific attribute by its name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>attribute</strong> (<em>str</em>) – The name of the fireplace attribute to set.</p></li>
+<li><p><strong>value</strong> (<em>int</em>) – The new value to set for the specifies attribute.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new state of the attribute as reported by the fireplace
+(if wait is set to True), False if a timeout was encountered while
+waiting for the fireplace to confirm the state update, or None if
+the update was made without waiting for confirmation from the
+fireplace.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int or bool or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="proflame_wifi.client.ProflameClient.status">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">status</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#proflame_wifi.client.ClientStatus" title="proflame_wifi.client.ClientStatus"><span class="pre">ClientStatus</span></a></em><a class="headerlink" href="#proflame_wifi.client.ProflameClient.status" title="Link to this definition"></a></dt>
+<dd><p>Get the current status of the fireplace API connection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The current statis of the fireplace client.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#proflame_wifi.client.ClientStatus" title="proflame_wifi.client.ClientStatus">ClientStatus</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="proflame_wifi.client.ProflameClient.uri">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">uri</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#proflame_wifi.client.ProflameClient.uri" title="Link to this definition"></a></dt>
+<dd><p>Get the formatted URI for the fireplace websocket.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The fireplace websocket URI.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.client.ProflameClient.wait_for_active">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">wait_for_active</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/client.html#ProflameClient.wait_for_active"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.client.ProflameClient.wait_for_active" title="Link to this definition"></a></dt>
+<dd><p>Wait for the fireplace connection to become active.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.client.ProflameClient.wait_for_state_available">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">wait_for_state_available</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/proflame_wifi/client.html#ProflameClient.wait_for_state_available"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.client.ProflameClient.wait_for_state_available" title="Link to this definition"></a></dt>
+<dd><p>Wait until a specified state key is available from the API.</p>
+<p>On connection the fireplace will send multiple messages after a
+connection becomes active to report the state of all supported
+functionality.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>field</strong> – The attribute that you want to wait to become available
+from the fireplace.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="proflame-wifi-connection-module">
-<h2>proflame_wifi.connection module<a class="headerlink" href="#proflame-wifi-connection-module" title="Permalink to this heading"></a></h2>
+<section id="module-proflame_wifi.connection">
+<span id="proflame-wifi-connection-module"></span><h2>proflame_wifi.connection module<a class="headerlink" href="#module-proflame_wifi.connection" title="Link to this heading"></a></h2>
+<p>Basic functionality for interacting with websockets.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="proflame_wifi.connection.ConnectionManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">proflame_wifi.connection.</span></span><span class="sig-name descname"><span class="pre">ConnectionManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">88</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ping_interval</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ping_message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connect_handlers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">NoReturn</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disconnect_handlers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">NoReturn</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recv_handlers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">NoReturn</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/proflame_wifi/connection.html#ConnectionManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.connection.ConnectionManager" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Object for establishing and interacting with websockets.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.connection.ConnectionManager.PING_INTERVAL">
+<span class="sig-name descname"><span class="pre">PING_INTERVAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#proflame_wifi.connection.ConnectionManager.PING_INTERVAL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.connection.ConnectionManager.PING_MESSAGE">
+<span class="sig-name descname"><span class="pre">PING_MESSAGE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PING'</span></em><a class="headerlink" href="#proflame_wifi.connection.ConnectionManager.PING_MESSAGE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.connection.ConnectionManager.connect">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/connection.html#ConnectionManager.connect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.connection.ConnectionManager.connect" title="Link to this definition"></a></dt>
+<dd><p>Open a websocket connection and start workers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>wait</strong> (<em>bool</em>) – Whather to wait for the connection to be opened before
+returning.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="proflame_wifi.connection.ConnectionManager.connected">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">connected</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#proflame_wifi.connection.ConnectionManager.connected" title="Link to this definition"></a></dt>
+<dd><p>Return true if the connection status is currently connected.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A boolean value that indicates if the connection is currently
+established.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.connection.ConnectionManager.disconnect">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/proflame_wifi/connection.html#ConnectionManager.disconnect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.connection.ConnectionManager.disconnect" title="Link to this definition"></a></dt>
+<dd><p>Close a websocket connection and stop workers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>wait</strong> (<em>bool</em>) – Whether to wait for the connection to be closed before
+returning.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.connection.ConnectionManager.register_connect_handler">
+<span class="sig-name descname"><span class="pre">register_connect_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">NoReturn</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/connection.html#ConnectionManager.register_connect_handler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.connection.ConnectionManager.register_connect_handler" title="Link to this definition"></a></dt>
+<dd><p>Add a new callback function to be invoked any time a new connection is
+established.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>handler</strong> (<em>Callable</em><em>[</em><em>[</em><a class="reference internal" href="#proflame_wifi.connection.ConnectionManager" title="proflame_wifi.connection.ConnectionManager"><em>ConnectionManager</em></a><em>]</em><em>, </em><em>NoReturn</em><em>]</em>) – The function to call on new connections.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.connection.ConnectionManager.register_disconnect_handler">
+<span class="sig-name descname"><span class="pre">register_disconnect_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">NoReturn</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/connection.html#ConnectionManager.register_disconnect_handler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.connection.ConnectionManager.register_disconnect_handler" title="Link to this definition"></a></dt>
+<dd><p>Add a new callback function to be invoked any time an established
+connection is closed or dropped.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>handler</strong> (<em>Callable</em><em>[</em><em>[</em><a class="reference internal" href="#proflame_wifi.connection.ConnectionManager" title="proflame_wifi.connection.ConnectionManager"><em>ConnectionManager</em></a><em>]</em><em>, </em><em>NoReturn</em><em>]</em>) – The function to call on closed connections.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.connection.ConnectionManager.register_recv_handler">
+<span class="sig-name descname"><span class="pre">register_recv_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">NoReturn</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/connection.html#ConnectionManager.register_recv_handler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.connection.ConnectionManager.register_recv_handler" title="Link to this definition"></a></dt>
+<dd><p>Add a new callback function to be invoked any time a new message is
+received from the websocket.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>handler</strong> (<em>Callable</em><em>[</em><em>[</em><a class="reference internal" href="#proflame_wifi.connection.ConnectionManager" title="proflame_wifi.connection.ConnectionManager"><em>ConnectionManager</em></a><em>, </em><em>str</em><em>]</em><em>, </em><em>NoReturn</em><em>]</em>) – The function to call on received messages.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.connection.ConnectionManager.send">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/connection.html#ConnectionManager.send"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.connection.ConnectionManager.send" title="Link to this definition"></a></dt>
+<dd><p>Send a raw message to the websocket.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>message</strong> (<em>str</em>) – The message to send to the websocket.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="proflame_wifi.connection.ConnectionManager.status">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">status</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#proflame_wifi.connection.ConnectionStatus" title="proflame_wifi.connection.ConnectionStatus"><span class="pre">ConnectionStatus</span></a></em><a class="headerlink" href="#proflame_wifi.connection.ConnectionManager.status" title="Link to this definition"></a></dt>
+<dd><p>Get the current status of the connection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The current status of the connection.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#proflame_wifi.connection.ConnectionStatus" title="proflame_wifi.connection.ConnectionStatus">ConnectionStatus</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="proflame_wifi.connection.ConnectionManager.uri">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">uri</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#proflame_wifi.connection.ConnectionManager.uri" title="Link to this definition"></a></dt>
+<dd><p>Get the formatted URI for the websocket.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The websocket URI.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.connection.ConnectionManager.wait_for_connect">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">wait_for_connect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/connection.html#ConnectionManager.wait_for_connect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.connection.ConnectionManager.wait_for_connect" title="Link to this definition"></a></dt>
+<dd><p>Wait for the websocket connection to become available.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.connection.ConnectionManager.wait_for_disconnect">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">wait_for_disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/connection.html#ConnectionManager.wait_for_disconnect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.connection.ConnectionManager.wait_for_disconnect" title="Link to this definition"></a></dt>
+<dd><p>Wait for the websocket connection to close.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="proflame_wifi.connection.ConnectionStatus">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">proflame_wifi.connection.</span></span><span class="sig-name descname"><span class="pre">ConnectionStatus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/proflame_wifi/connection.html#ConnectionStatus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.connection.ConnectionStatus" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">StrEnum</span></code></p>
+<p>Enum that represents valid states of a websocket connection.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.connection.ConnectionStatus.CONNECTED">
+<span class="sig-name descname"><span class="pre">CONNECTED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CONNECTED'</span></em><a class="headerlink" href="#proflame_wifi.connection.ConnectionStatus.CONNECTED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.connection.ConnectionStatus.CONNECTING">
+<span class="sig-name descname"><span class="pre">CONNECTING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CONNECTING'</span></em><a class="headerlink" href="#proflame_wifi.connection.ConnectionStatus.CONNECTING" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.connection.ConnectionStatus.DISCONNECTED">
+<span class="sig-name descname"><span class="pre">DISCONNECTED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DISCONNECTED'</span></em><a class="headerlink" href="#proflame_wifi.connection.ConnectionStatus.DISCONNECTED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.connection.ConnectionStatus.DISCONNECTING">
+<span class="sig-name descname"><span class="pre">DISCONNECTING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DISCONNECTING'</span></em><a class="headerlink" href="#proflame_wifi.connection.ConnectionStatus.DISCONNECTING" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="proflame-wifi-const-module">
-<h2>proflame_wifi.const module<a class="headerlink" href="#proflame-wifi-const-module" title="Permalink to this heading"></a></h2>
+<section id="module-proflame_wifi.const">
+<span id="proflame-wifi-const-module"></span><h2>proflame_wifi.const module<a class="headerlink" href="#module-proflame_wifi.const" title="Link to this heading"></a></h2>
+<p>Constant values used by the API.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="proflame_wifi.const.ApiAttrs">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">proflame_wifi.const.</span></span><span class="sig-name descname"><span class="pre">ApiAttrs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/proflame_wifi/const.html#ApiAttrs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.const.ApiAttrs" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">StrEnum</span></code></p>
+<p>Available attributes accessible via the API.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.ApiAttrs.AUXILIARY">
+<span class="sig-name descname"><span class="pre">AUXILIARY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'auxiliary_out'</span></em><a class="headerlink" href="#proflame_wifi.const.ApiAttrs.AUXILIARY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.ApiAttrs.BURNER_STATUS">
+<span class="sig-name descname"><span class="pre">BURNER_STATUS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'burner_status'</span></em><a class="headerlink" href="#proflame_wifi.const.ApiAttrs.BURNER_STATUS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.ApiAttrs.CURRENT_TEMPERATURE">
+<span class="sig-name descname"><span class="pre">CURRENT_TEMPERATURE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'room_temperature'</span></em><a class="headerlink" href="#proflame_wifi.const.ApiAttrs.CURRENT_TEMPERATURE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.ApiAttrs.FAN_SPEED">
+<span class="sig-name descname"><span class="pre">FAN_SPEED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'fan_control'</span></em><a class="headerlink" href="#proflame_wifi.const.ApiAttrs.FAN_SPEED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.ApiAttrs.FIRMWARE_REVISION">
+<span class="sig-name descname"><span class="pre">FIRMWARE_REVISION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'fw_revision'</span></em><a class="headerlink" href="#proflame_wifi.const.ApiAttrs.FIRMWARE_REVISION" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.ApiAttrs.FLAME_HEIGHT">
+<span class="sig-name descname"><span class="pre">FLAME_HEIGHT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'flame_control'</span></em><a class="headerlink" href="#proflame_wifi.const.ApiAttrs.FLAME_HEIGHT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.ApiAttrs.FREE_HEAP">
+<span class="sig-name descname"><span class="pre">FREE_HEAP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'free_heap'</span></em><a class="headerlink" href="#proflame_wifi.const.ApiAttrs.FREE_HEAP" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.ApiAttrs.LIGHT_BRIGHTNESS">
+<span class="sig-name descname"><span class="pre">LIGHT_BRIGHTNESS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'lamp_control'</span></em><a class="headerlink" href="#proflame_wifi.const.ApiAttrs.LIGHT_BRIGHTNESS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.ApiAttrs.MIN_FREE_HEAP">
+<span class="sig-name descname"><span class="pre">MIN_FREE_HEAP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'min_free_heap'</span></em><a class="headerlink" href="#proflame_wifi.const.ApiAttrs.MIN_FREE_HEAP" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.ApiAttrs.OPERATING_MODE">
+<span class="sig-name descname"><span class="pre">OPERATING_MODE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'main_mode'</span></em><a class="headerlink" href="#proflame_wifi.const.ApiAttrs.OPERATING_MODE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.ApiAttrs.PILOT_MODE">
+<span class="sig-name descname"><span class="pre">PILOT_MODE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pilot_mode'</span></em><a class="headerlink" href="#proflame_wifi.const.ApiAttrs.PILOT_MODE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.ApiAttrs.REMOTE_CONTROL">
+<span class="sig-name descname"><span class="pre">REMOTE_CONTROL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'remote_control'</span></em><a class="headerlink" href="#proflame_wifi.const.ApiAttrs.REMOTE_CONTROL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.ApiAttrs.SPLIT_FLOW">
+<span class="sig-name descname"><span class="pre">SPLIT_FLOW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'split_flow'</span></em><a class="headerlink" href="#proflame_wifi.const.ApiAttrs.SPLIT_FLOW" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.ApiAttrs.TARGET_TEMPERATURE">
+<span class="sig-name descname"><span class="pre">TARGET_TEMPERATURE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'temperature_set'</span></em><a class="headerlink" href="#proflame_wifi.const.ApiAttrs.TARGET_TEMPERATURE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.ApiAttrs.TEMPERATURE_UNIT">
+<span class="sig-name descname"><span class="pre">TEMPERATURE_UNIT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'temperature_unit'</span></em><a class="headerlink" href="#proflame_wifi.const.ApiAttrs.TEMPERATURE_UNIT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.ApiAttrs.WIFI_SIGNAL_STR">
+<span class="sig-name descname"><span class="pre">WIFI_SIGNAL_STR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'wifi_signal_str'</span></em><a class="headerlink" href="#proflame_wifi.const.ApiAttrs.WIFI_SIGNAL_STR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="proflame_wifi.const.ApiControl">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">proflame_wifi.const.</span></span><span class="sig-name descname"><span class="pre">ApiControl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/proflame_wifi/const.html#ApiControl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.const.ApiControl" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">StrEnum</span></code></p>
+<p>Known control messages used by the API.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.ApiControl.CONN_ACK">
+<span class="sig-name descname"><span class="pre">CONN_ACK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PROFLAMECONNECTIONOPEN'</span></em><a class="headerlink" href="#proflame_wifi.const.ApiControl.CONN_ACK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.ApiControl.CONN_SYN">
+<span class="sig-name descname"><span class="pre">CONN_SYN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PROFLAMECONNECTION'</span></em><a class="headerlink" href="#proflame_wifi.const.ApiControl.CONN_SYN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.ApiControl.PING">
+<span class="sig-name descname"><span class="pre">PING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PROFLAMEPING'</span></em><a class="headerlink" href="#proflame_wifi.const.ApiControl.PING" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.ApiControl.PONG">
+<span class="sig-name descname"><span class="pre">PONG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PROFLAMEPONG'</span></em><a class="headerlink" href="#proflame_wifi.const.ApiControl.PONG" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="proflame_wifi.const.OperatingMode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">proflame_wifi.const.</span></span><span class="sig-name descname"><span class="pre">OperatingMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/proflame_wifi/const.html#OperatingMode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.const.OperatingMode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></p>
+<p>Available operating modes for fireplace unit.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.OperatingMode.MANUAL">
+<span class="sig-name descname"><span class="pre">MANUAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#proflame_wifi.const.OperatingMode.MANUAL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.OperatingMode.OFF">
+<span class="sig-name descname"><span class="pre">OFF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#proflame_wifi.const.OperatingMode.OFF" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.OperatingMode.SMART">
+<span class="sig-name descname"><span class="pre">SMART</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#proflame_wifi.const.OperatingMode.SMART" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.OperatingMode.THERMOSTAT">
+<span class="sig-name descname"><span class="pre">THERMOSTAT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#proflame_wifi.const.OperatingMode.THERMOSTAT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="proflame_wifi.const.PilotMode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">proflame_wifi.const.</span></span><span class="sig-name descname"><span class="pre">PilotMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/proflame_wifi/const.html#PilotMode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.const.PilotMode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></p>
+<p>Available pilot modes for the fireplace.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.PilotMode.CONTINUOUS">
+<span class="sig-name descname"><span class="pre">CONTINUOUS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#proflame_wifi.const.PilotMode.CONTINUOUS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.PilotMode.INTERMITENT">
+<span class="sig-name descname"><span class="pre">INTERMITENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#proflame_wifi.const.PilotMode.INTERMITENT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="proflame_wifi.const.Preset">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">proflame_wifi.const.</span></span><span class="sig-name descname"><span class="pre">Preset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/proflame_wifi/const.html#Preset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.const.Preset" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">StrEnum</span></code></p>
+<p>Available presets for fireplace control.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.Preset.MANUAL">
+<span class="sig-name descname"><span class="pre">MANUAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Manual'</span></em><a class="headerlink" href="#proflame_wifi.const.Preset.MANUAL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.Preset.OFF">
+<span class="sig-name descname"><span class="pre">OFF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Off'</span></em><a class="headerlink" href="#proflame_wifi.const.Preset.OFF" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.Preset.SMART">
+<span class="sig-name descname"><span class="pre">SMART</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Smart'</span></em><a class="headerlink" href="#proflame_wifi.const.Preset.SMART" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.Preset.THERMOSTAT">
+<span class="sig-name descname"><span class="pre">THERMOSTAT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Thermostat'</span></em><a class="headerlink" href="#proflame_wifi.const.Preset.THERMOSTAT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="proflame_wifi.const.TemperatureUnit">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">proflame_wifi.const.</span></span><span class="sig-name descname"><span class="pre">TemperatureUnit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/proflame_wifi/const.html#TemperatureUnit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.const.TemperatureUnit" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></p>
+<p>Valid temperature units.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.TemperatureUnit.CELSIUS">
+<span class="sig-name descname"><span class="pre">CELSIUS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#proflame_wifi.const.TemperatureUnit.CELSIUS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="proflame_wifi.const.TemperatureUnit.FAHRENHEIT">
+<span class="sig-name descname"><span class="pre">FAHRENHEIT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#proflame_wifi.const.TemperatureUnit.FAHRENHEIT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="proflame-wifi-get-state-module">
-<h2>proflame_wifi.get_state module<a class="headerlink" href="#proflame-wifi-get-state-module" title="Permalink to this heading"></a></h2>
+<section id="module-proflame_wifi.get_state">
+<span id="proflame-wifi-get-state-module"></span><h2>proflame_wifi.get_state module<a class="headerlink" href="#module-proflame_wifi.get_state" title="Link to this heading"></a></h2>
+<p>Helper script for retrieving information about a fireplace.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="proflame_wifi.get_state.get_state">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">proflame_wifi.get_state.</span></span><span class="sig-name descname"><span class="pre">get_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/get_state.html#get_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.get_state.get_state" title="Link to this definition"></a></dt>
+<dd><p>Get the full state of a fireplace and print it to the console.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>host</strong> (<em>str</em>) – The DNS name or IP address of the fireplace.</p></li>
+<li><p><strong>port</strong> (<em>int</em>) – The port that the fireplace is listening on.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="proflame_wifi.get_state.main">
+<span class="sig-prename descclassname"><span class="pre">proflame_wifi.get_state.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/proflame_wifi/get_state.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.get_state.main" title="Link to this definition"></a></dt>
+<dd><p>Entrypoint of the script.</p>
+</dd></dl>
+
 </section>
-<section id="proflame-wifi-manager-module">
-<h2>proflame_wifi.manager module<a class="headerlink" href="#proflame-wifi-manager-module" title="Permalink to this heading"></a></h2>
+<section id="module-proflame_wifi.manager">
+<span id="proflame-wifi-manager-module"></span><h2>proflame_wifi.manager module<a class="headerlink" href="#module-proflame_wifi.manager" title="Link to this heading"></a></h2>
+<p>High level API for interacting with Proflame fireplaces.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">proflame_wifi.manager.</span></span><span class="sig-name descname"><span class="pre">ProflameManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ping_interval</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callbacks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">NoReturn</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/proflame_wifi/manager.html#ProflameManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.manager.ProflameManager" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>High level API for interacting with Proflame fireplaces.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.connect">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/manager.html#ProflameManager.connect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.connect" title="Link to this definition"></a></dt>
+<dd><p>Open a connection to the fireplace.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.current_temperature">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">current_temperature</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#proflame_wifi.temperature.Temperature" title="proflame_wifi.temperature.Temperature"><span class="pre">Temperature</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.current_temperature" title="Link to this definition"></a></dt>
+<dd><p>Get the current temperature reported by the unit. By default this will
+be the temperature reported to the fireplace by the Proflame remote’s
+thermostat.</p>
+<p>Can be None if the fireplace has yet to report its recorded
+temperature.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The current room temperature reported to the fireplace.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#proflame_wifi.temperature.Temperature" title="proflame_wifi.temperature.Temperature">Temperature</a> | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.disconnect">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/manager.html#ProflameManager.disconnect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.disconnect" title="Link to this definition"></a></dt>
+<dd><p>Close the connection to the fireplace.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.fan_speed">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fan_speed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.fan_speed" title="Link to this definition"></a></dt>
+<dd><p>Get the current state of the fireplace fan.</p>
+<p>Could be None if the fireplace has yet to report the state of the fan.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The current fan speed reported by the fireplace.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.flame_height">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">flame_height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.flame_height" title="Link to this definition"></a></dt>
+<dd><p>Get the current flame height of the fireplace.</p>
+<p>Could be None if the fireplace has yet to report the state of the
+flame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The current fan speed reported by the fireplace.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.full_state">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">full_state</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.full_state" title="Link to this definition"></a></dt>
+<dd><p>Retrieve a full copy of all the attributes reported by the fireplace.</p>
+<p>The fields in the returned object will vary depending on what the
+fireplace has reported.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A snapshot of the current fireplace state.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict[str, int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.get_state">
+<span class="sig-name descname"><span class="pre">get_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attribute</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/manager.html#ProflameManager.get_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.get_state" title="Link to this definition"></a></dt>
+<dd><p>Get the state of a specific attribute by its name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>attribute</strong> (<em>str</em>) – The name of the fireplace attribute to retrieve.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The value of the requested attribute or None if the requested
+attribute has not been reported by the fireplace.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.is_on">
+<span class="sig-name descname"><span class="pre">is_on</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/manager.html#ProflameManager.is_on"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.is_on" title="Link to this definition"></a></dt>
+<dd><p>Return true if the fireplace is on.</p>
+<p>Could be None if the fireplace has not reported enough information to
+determine its current state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the fireplace is on, False if the fireplace is off,
+or None if the current state of the fireplace is unknown.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.light_brightness">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">light_brightness</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.light_brightness" title="Link to this definition"></a></dt>
+<dd><p>Get the current brightness of the primary light.</p>
+<p>Could be None if the fireplace has yet to report the state of the
+primary light.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The current brightness of the primary light.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.operating_mode">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">operating_mode</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#proflame_wifi.const.OperatingMode" title="proflame_wifi.const.OperatingMode"><span class="pre">OperatingMode</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.operating_mode" title="Link to this definition"></a></dt>
+<dd><p>Get the current main operating mode of the fireplace.</p>
+<p>Possible operating modes include:</p>
+<ul class="simple">
+<li><p>OFF - The main power to the fireplace and all supported accessories
+is switched off.</p></li>
+<li><p>MANUAL - The fireplace is maintaining a flame height as specified by
+the user.</p></li>
+<li><p>THERMOSTAT - The fireplace will try to maintain a specific
+temperature by switching the flame off and on at the desired height.</p></li>
+<li><p>SMART - The fireplace will try to maintain a specific temperature by
+dynamically adjusting the height of the flame.</p></li>
+</ul>
+<p>Could be None if the fireplace has yet to report its current operating
+mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The current operating mode of the fireplace.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#proflame_wifi.const.OperatingMode" title="proflame_wifi.const.OperatingMode">OperatingMode</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.pilot_mode">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pilot_mode</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#proflame_wifi.const.PilotMode" title="proflame_wifi.const.PilotMode"><span class="pre">PilotMode</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.pilot_mode" title="Link to this definition"></a></dt>
+<dd><p>Get the current pilot mode of the fireplace.</p>
+<p>Possible pilot modes include:</p>
+<ul class="simple">
+<li><p>INTERMITENT - The pilot is lit any time the fireplace needs to be
+turned on.</p></li>
+<li><p>CONTINUOUS - The pilot is always kept lit in a low power state.</p></li>
+</ul>
+<p>Could be None if the fireplace has yet to report its current pilot
+mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The pilot mode of the fireplace.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#proflame_wifi.const.PilotMode" title="proflame_wifi.const.PilotMode">PilotMode</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.preset">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">preset</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#proflame_wifi.const.Preset" title="proflame_wifi.const.Preset"><span class="pre">Preset</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.preset" title="Link to this definition"></a></dt>
+<dd><p>Gets a more generalized summary of the current state of the fireplace.</p>
+<p>This is primarily intended for home automation systems where some of
+the raw behavior reported by the fireplace API might not reflect the
+practical state of the fireplace.</p>
+<p>The return values of this attribute are very similar to those returned
+by <cite>operating_mode</cite>. The main difference is that if the fireplace is
+in manual mode with the flame turned off then the current fireplace
+state is reported as off (other accessories such as light or fan could
+be on).</p>
+<p>Could be None if the fireplace has yet to reportits current operating
+mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A preset which represents the current state of the fireplace
+specifically (without accessories factored in).</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#proflame_wifi.const.Preset" title="proflame_wifi.const.Preset">Preset</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.register_callback">
+<span class="sig-name descname"><span class="pre">register_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Self</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">NoReturn</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/manager.html#ProflameManager.register_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.register_callback" title="Link to this definition"></a></dt>
+<dd><p>Register a callback that will be invoked when a state change is
+reported by the fireplace.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>callback</strong> (<em>Callable</em><em>[</em><em>[</em><a class="reference internal" href="#proflame_wifi.manager.ProflameManager" title="proflame_wifi.manager.ProflameManager"><em>ProflameManager</em></a><em>, </em><em>str</em><em>, </em><em>int</em><em>]</em><em>, </em><em>NoReturn</em><em>]</em>) – The function to invoke whenever a state change is
+reported by the fireplace.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.set_fan_speed">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_fan_speed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">speed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/manager.html#ProflameManager.set_fan_speed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.set_fan_speed" title="Link to this definition"></a></dt>
+<dd><p>Set the desired speed of the fireplace fan.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>speed</strong> (<em>int</em>) – The new fireplace fan speed to set.</p></li>
+<li><p><strong>wait</strong> (<em>bool</em>) – Whether to wait for the fireplace to confirm a change to
+the state of the fan.</p></li>
+<li><p><strong>wait_timeout</strong> (<em>float</em>) – The duration (in seconds) to wait for the
+fireplace to report back an update on the state of the fan.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new state of the fan as reported by the fireplace (if wait
+is set to True), False if a timeout was encountered while waiting
+for the fireplace to confirm the state update, or None if the
+update was made without waiting for confirmation from the
+fireplace.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int or bool or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.set_flame_height">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_flame_height</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/manager.html#ProflameManager.set_flame_height"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.set_flame_height" title="Link to this definition"></a></dt>
+<dd><p>Set the desired height of the fireplace flame.</p>
+<p>Only applies when the fireplace is in a mode where the flame height is
+user adjustable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>height</strong> (<em>int</em>) – The new fireplace flame height to set.</p></li>
+<li><p><strong>wait</strong> (<em>bool</em>) – Whether to wait for the fireplace to confirm a change to
+the state of the flame.</p></li>
+<li><p><strong>wait_timeout</strong> (<em>float</em>) – The duration (in seconds) to wait for the
+fireplace to report back an update on the state of the flame.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new state of the flame as reported by the fireplace (if
+wait is set to True), False if a timeout was encountered while
+waiting for the fireplace to confirm the state update, or None if
+the update was made without waiting for confirmation from the
+fireplace.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int or bool or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.set_light_brightness">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_light_brightness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">brightness</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/manager.html#ProflameManager.set_light_brightness"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.set_light_brightness" title="Link to this definition"></a></dt>
+<dd><p>Set the desired brightness of the fireplace primary light.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>brightness</strong> (<em>int</em>) – The new fireplace light brightness to set.</p></li>
+<li><p><strong>wait</strong> (<em>bool</em>) – Whether to wait for the fireplace to confirm a change to
+the state of the light.</p></li>
+<li><p><strong>wait_timeout</strong> (<em>float</em>) – The duration (in seconds) to wait for the
+fireplace to report back an update on the state of the light.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new state of the light as reported by the fireplace (if
+wait is set to True), False if a timeout was encountered while
+waiting for the fireplace to confirm the state update, or None if
+the update was made without waiting for confirmation from the
+fireplace.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int or bool or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.set_operating_mode">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_operating_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#proflame_wifi.const.OperatingMode" title="proflame_wifi.const.OperatingMode"><span class="pre">OperatingMode</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#proflame_wifi.const.OperatingMode" title="proflame_wifi.const.OperatingMode"><span class="pre">OperatingMode</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/manager.html#ProflameManager.set_operating_mode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.set_operating_mode" title="Link to this definition"></a></dt>
+<dd><p>Set the primary operating mode of the fireplace unit as a whole.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mode</strong> (<a class="reference internal" href="#proflame_wifi.const.OperatingMode" title="proflame_wifi.const.OperatingMode"><em>OperatingMode</em></a>) – The new fireplace operating mode to set.</p></li>
+<li><p><strong>wait</strong> (<em>bool</em>) – Whether to wait for the fireplace to confirm a change to
+the state of the unit.</p></li>
+<li><p><strong>wait_timeout</strong> (<em>float</em>) – The duration (in seconds) to wait for the
+fireplace to report back an update on the state of the unit.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new state of the unit as reported by the fireplace (if
+wait is set to True), False if a timeout was encountered while
+waiting for the fireplace to confirm the state update, or None if
+the update was made without waiting for confirmation from the
+fireplace.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int or bool or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.set_pilot_mode">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_pilot_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#proflame_wifi.const.PilotMode" title="proflame_wifi.const.PilotMode"><span class="pre">PilotMode</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#proflame_wifi.const.PilotMode" title="proflame_wifi.const.PilotMode"><span class="pre">PilotMode</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/manager.html#ProflameManager.set_pilot_mode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.set_pilot_mode" title="Link to this definition"></a></dt>
+<dd><p>Set the operating behavior of the fireplace pilor light.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mode</strong> (<a class="reference internal" href="#proflame_wifi.const.PilotMode" title="proflame_wifi.const.PilotMode"><em>PilotMode</em></a>) – The new pilot mode to set.</p></li>
+<li><p><strong>wait</strong> (<em>bool</em>) – Whether to wait for the fireplace to confirm a change to
+the state of the pilot.</p></li>
+<li><p><strong>wait_timeout</strong> (<em>float</em>) – The duration (in seconds) to wait for the
+fireplace to report back an update on the state of the pilot.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new state of the pilot as reported by the fireplace (if
+wait is set to True), False if a timeout was encountered while
+waiting for the fireplace to confirm the state update, or None if
+the update was made without waiting for confirmation from the
+fireplace.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int or bool or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.set_preset">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_preset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#proflame_wifi.const.Preset" title="proflame_wifi.const.Preset"><span class="pre">Preset</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/manager.html#ProflameManager.set_preset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.set_preset" title="Link to this definition"></a></dt>
+<dd><p>Set the fireplace state to a general desired state.</p>
+<p>This is primarily intended for home automation systems and provides a
+warpper for functionality that makes transitioning between states
+easier.</p>
+<p>It provides the basic functionality of operating modes while targeting
+the fireplace specifically, without affecting any connected
+accessories.</p>
+<p>For example, when switching to an off state with accessories running
+this will turn off the flame while leaving accessories running. When
+switching back to an on state the flame values will be retored to what
+was in use before getting turned off.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>preset</strong> (<a class="reference internal" href="#proflame_wifi.const.Preset" title="proflame_wifi.const.Preset"><em>Preset</em></a>) – The name of the preset mode to switch to.</p></li>
+<li><p><strong>wait</strong> (<em>bool</em>) – Whether to wait for the fireplace to confirm changes made
+to its state.</p></li>
+<li><p><strong>wait_timeout</strong> (<em>float</em>) – The duration (in seconds) to wait for the
+fireplace to report back updates to its state. If multiple updates
+need to made made to satisfy the preset each update will wait this
+duration.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.set_state">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attribute</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/manager.html#ProflameManager.set_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.set_state" title="Link to this definition"></a></dt>
+<dd><p>Set the state of a specific attribute by its name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>attribute</strong> (<em>str</em>) – The name of the fireplace attribute to set.</p></li>
+<li><p><strong>value</strong> (<em>int</em>) – The new value to set for the specifies attribute.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new state of the attribute as reported by the fireplace
+(if wait is set to True), False if a timeout was encountered while
+waiting for the fireplace to confirm the state update, or None if
+the update was made without waiting for confirmation from the
+fireplace.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int or bool or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.set_target_temperature">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_target_temperature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#proflame_wifi.temperature.Temperature" title="proflame_wifi.temperature.Temperature"><span class="pre">Temperature</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#proflame_wifi.temperature.Temperature" title="proflame_wifi.temperature.Temperature"><span class="pre">Temperature</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/manager.html#ProflameManager.set_target_temperature"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.set_target_temperature" title="Link to this definition"></a></dt>
+<dd><p>Set the desired temperature for themostat based modes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>temperature</strong> (<a class="reference internal" href="#proflame_wifi.temperature.Temperature" title="proflame_wifi.temperature.Temperature"><em>Temperature</em></a>) – The new temperature that the fireplace should try
+to maintain.</p></li>
+<li><p><strong>wait</strong> (<em>bool</em>) – Whether to wait for the fireplace to confirm a change to
+the target temperature.</p></li>
+<li><p><strong>wait_timeout</strong> (<em>float</em>) – The duration (in seconds) to wait for the
+fireplace to report back an update on the state of the target
+temperature.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new target temperature as reported by the fireplace (if
+wait is set to True), False if a timeout was encountered while
+waiting for the fireplace to confirm the state update, or None if
+the update was made without waiting for confirmation from the
+fireplace.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#proflame_wifi.temperature.Temperature" title="proflame_wifi.temperature.Temperature">Temperature</a> or bool or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.status">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">status</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#proflame_wifi.client.ClientStatus" title="proflame_wifi.client.ClientStatus"><span class="pre">ClientStatus</span></a></em><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.status" title="Link to this definition"></a></dt>
+<dd><p>Get the current status of the fireplace API connection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The current statis of the fireplace client.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#proflame_wifi.client.ClientStatus" title="proflame_wifi.client.ClientStatus">ClientStatus</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.target_temperature">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">target_temperature</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#proflame_wifi.temperature.Temperature" title="proflame_wifi.temperature.Temperature"><span class="pre">Temperature</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.target_temperature" title="Link to this definition"></a></dt>
+<dd><p>Get the currently configured temperature the device is trying to
+maintain.</p>
+<p>Requires an active thermostat (typically the Proflam remote) to be
+actively reporting a room temperature to the fireplace.</p>
+<p>Only applies if the current operating mode is either THEMOSTAT of
+SMART, otherwise this will be None. Could also be None if the fireplace
+has yet to report its current target temperature.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The current temperature the fireplace is trying to maintain
+or None if the current fireplace mode does not support mainatining
+a target temperature.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#proflame_wifi.temperature.Temperature" title="proflame_wifi.temperature.Temperature">Temperature</a> | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.temperature_unit">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">temperature_unit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#proflame_wifi.const.TemperatureUnit" title="proflame_wifi.const.TemperatureUnit"><span class="pre">TemperatureUnit</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.temperature_unit" title="Link to this definition"></a></dt>
+<dd><p>Get the temperature unit the device is configured to use.</p>
+<p>Could be None if the fireplace has yet to report its current
+temperature unit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The current temperature unit used by the fireplace.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#proflame_wifi.const.TemperatureUnit" title="proflame_wifi.const.TemperatureUnit">TemperatureUnit</a> | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.turn_off">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">turn_off</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/manager.html#ProflameManager.turn_off"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.turn_off" title="Link to this definition"></a></dt>
+<dd><p>Turn off the main power of the fireplace unit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wait</strong> (<em>bool</em>) – Whether to wait for the fireplace to confirm a change to
+the requested change.</p></li>
+<li><p><strong>wait_timeout</strong> (<em>float</em>) – The duration (in seconds) to wait for the
+fireplace to report back an update on the requested change.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.turn_off_fan">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">turn_off_fan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/manager.html#ProflameManager.turn_off_fan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.turn_off_fan" title="Link to this definition"></a></dt>
+<dd><p>Set the speed of the fan to 0</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wait</strong> (<em>bool</em>) – Whether to wait for the fireplace to confirm a change to
+the requested change.</p></li>
+<li><p><strong>wait_timeout</strong> (<em>float</em>) – The duration (in seconds) to wait for the
+fireplace to report back an update on the requested change.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.turn_off_light">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">turn_off_light</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/manager.html#ProflameManager.turn_off_light"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.turn_off_light" title="Link to this definition"></a></dt>
+<dd><p>Set the brightness of the primary light to 0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wait</strong> (<em>bool</em>) – Whether to wait for the fireplace to confirm a change to
+the requested change.</p></li>
+<li><p><strong>wait_timeout</strong> (<em>float</em>) – The duration (in seconds) to wait for the
+fireplace to report back an update on the requested change.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.turn_on">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">turn_on</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/manager.html#ProflameManager.turn_on"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.turn_on" title="Link to this definition"></a></dt>
+<dd><p>Turn on the main power of the fireplace unit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wait</strong> (<em>bool</em>) – Whether to wait for the fireplace to confirm a change to
+the requested change.</p></li>
+<li><p><strong>wait_timeout</strong> (<em>float</em>) – The duration (in seconds) to wait for the
+fireplace to report back an update on the requested change.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.turn_on_fan">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">turn_on_fan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/manager.html#ProflameManager.turn_on_fan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.turn_on_fan" title="Link to this definition"></a></dt>
+<dd><p>Set the speed of the fan to the last known active speed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wait</strong> (<em>bool</em>) – Whether to wait for the fireplace to confirm a change to
+the requested change.</p></li>
+<li><p><strong>wait_timeout</strong> (<em>float</em>) – The duration (in seconds) to wait for the
+fireplace to report back an update on the requested change.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.turn_on_light">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">turn_on_light</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/manager.html#ProflameManager.turn_on_light"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.turn_on_light" title="Link to this definition"></a></dt>
+<dd><p>Set the brightness of the primary light to last known active
+brightness.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wait</strong> (<em>bool</em>) – Whether to wait for the fireplace to confirm a change to
+the requested change.</p></li>
+<li><p><strong>wait_timeout</strong> (<em>float</em>) – The duration (in seconds) to wait for the
+fireplace to report back an update on the requested change.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.uri">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">uri</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.uri" title="Link to this definition"></a></dt>
+<dd><p>Get the formatted URI for the fireplace websocket.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The fireplace websocket URI.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.wait_for_active">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">wait_for_active</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/proflame_wifi/manager.html#ProflameManager.wait_for_active"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.wait_for_active" title="Link to this definition"></a></dt>
+<dd><p>Wait for the fireplace connection to become active.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.manager.ProflameManager.wait_for_state_available">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">wait_for_state_available</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="_modules/proflame_wifi/manager.html#ProflameManager.wait_for_state_available"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.manager.ProflameManager.wait_for_state_available" title="Link to this definition"></a></dt>
+<dd><p>Wait until a specified state key is available from the API.</p>
+<p>On connection the fireplace will send multiple messages after a
+connection becomes active to report the state of all supported
+functionality.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>field</strong> – The attribute that you want to wait to become available
+from the fireplace.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="proflame-wifi-set-state-module">
-<h2>proflame_wifi.set_state module<a class="headerlink" href="#proflame-wifi-set-state-module" title="Permalink to this heading"></a></h2>
+<section id="module-proflame_wifi.set_state">
+<span id="proflame-wifi-set-state-module"></span><h2>proflame_wifi.set_state module<a class="headerlink" href="#module-proflame_wifi.set_state" title="Link to this heading"></a></h2>
+<p>Helper script for requesting state updates to a fireplace.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="proflame_wifi.set_state.main">
+<span class="sig-prename descclassname"><span class="pre">proflame_wifi.set_state.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/proflame_wifi/set_state.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.set_state.main" title="Link to this definition"></a></dt>
+<dd><p>Entrypoint of the script.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="proflame_wifi.set_state.set_state">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">proflame_wifi.set_state.</span></span><span class="sig-name descname"><span class="pre">set_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/proflame_wifi/set_state.html#set_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.set_state.set_state" title="Link to this definition"></a></dt>
+<dd><p>Request a change to the state of a fireplace.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>host</strong> (<em>str</em>) – The DNS name or IP address of the fireplace.</p></li>
+<li><p><strong>port</strong> (<em>int</em>) – The port that the fireplace is listening on.</p></li>
+<li><p><strong>field</strong> (<em>str</em>) – The API attribute to request an update for.</p></li>
+<li><p><strong>value</strong> (<em>int</em>) – The new value to set for the specified attribute.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="proflame-wifi-strings-module">
-<h2>proflame_wifi.strings module<a class="headerlink" href="#proflame-wifi-strings-module" title="Permalink to this heading"></a></h2>
+<section id="module-proflame_wifi.strings">
+<span id="proflame-wifi-strings-module"></span><h2>proflame_wifi.strings module<a class="headerlink" href="#module-proflame_wifi.strings" title="Link to this heading"></a></h2>
+<p>Internal messages to be used in logging and error handling.</p>
 </section>
-<section id="proflame-wifi-temperature-module">
-<h2>proflame_wifi.temperature module<a class="headerlink" href="#proflame-wifi-temperature-module" title="Permalink to this heading"></a></h2>
+<section id="module-proflame_wifi.temperature">
+<span id="proflame-wifi-temperature-module"></span><h2>proflame_wifi.temperature module<a class="headerlink" href="#module-proflame_wifi.temperature" title="Link to this heading"></a></h2>
+<p>Helper for interacting with temperatures in a flexible way.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="proflame_wifi.temperature.Temperature">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">proflame_wifi.temperature.</span></span><span class="sig-name descname"><span class="pre">Temperature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">celcius</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/proflame_wifi/temperature.html#Temperature"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.temperature.Temperature" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Helper class for interacting with temperature values.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.temperature.Temperature.celcius">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">celcius</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/proflame_wifi/temperature.html#Temperature.celcius"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.temperature.Temperature.celcius" title="Link to this definition"></a></dt>
+<dd><p>Create temperature from Celcius value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>float</em>) – A temperature value in Celcius.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A temperature object representing the given value.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#proflame_wifi.temperature.Temperature" title="proflame_wifi.temperature.Temperature">Temperature</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.temperature.Temperature.fahrenheit">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fahrenheit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="reference internal" href="_modules/proflame_wifi/temperature.html#Temperature.fahrenheit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.temperature.Temperature.fahrenheit" title="Link to this definition"></a></dt>
+<dd><p>Create temperature from Fahrenheit value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>float</em>) – A temperature value in Fahrenheit.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A temperature object representing the given value.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#proflame_wifi.temperature.Temperature" title="proflame_wifi.temperature.Temperature">Temperature</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.temperature.Temperature.to_celcius">
+<span class="sig-name descname"><span class="pre">to_celcius</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/proflame_wifi/temperature.html#Temperature.to_celcius"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.temperature.Temperature.to_celcius" title="Link to this definition"></a></dt>
+<dd><p>Return the temperature value as Celcius.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The value of this temperature in Celcius.</p>
+</dd>
+<dt class="field-even">Rtype float<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="proflame_wifi.temperature.Temperature.to_fahrenheit">
+<span class="sig-name descname"><span class="pre">to_fahrenheit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="_modules/proflame_wifi/temperature.html#Temperature.to_fahrenheit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.temperature.Temperature.to_fahrenheit" title="Link to this definition"></a></dt>
+<dd><p>Return the temperature value as Fahrenheit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The value of this temperature in Fahrenheit.</p>
+</dd>
+<dt class="field-even">Rtype float<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="proflame-wifi-util-module">
-<h2>proflame_wifi.util module<a class="headerlink" href="#proflame-wifi-util-module" title="Permalink to this heading"></a></h2>
+<section id="module-proflame_wifi.util">
+<span id="proflame-wifi-util-module"></span><h2>proflame_wifi.util module<a class="headerlink" href="#module-proflame_wifi.util" title="Link to this heading"></a></h2>
+<p>Helper functions used throughout the module.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="proflame_wifi.util.constrain">
+<span class="sig-prename descclassname"><span class="pre">proflame_wifi.util.</span></span><span class="sig-name descname"><span class="pre">constrain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/proflame_wifi/util.html#constrain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#proflame_wifi.util.constrain" title="Link to this definition"></a></dt>
+<dd><p>Constrain a number to a specified range.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>int</em>) – The input value to constrain.</p></li>
+<li><p><strong>min_value</strong> (<em>int</em>) – The lower bound that the output should be constrained to.</p></li>
+<li><p><strong>max_value</strong> (<em>int</em>) – The upper bound that the output should be constrained to.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
+<section id="module-proflame_wifi">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-proflame_wifi" title="Link to this heading"></a></h2>
 </section>
 </section>
 

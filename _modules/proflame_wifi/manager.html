@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>proflame_wifi.manager &mdash; Proflame Wifi 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Proflame Wifi
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">proflame_wifi</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Proflame Wifi</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">proflame_wifi.manager</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for proflame_wifi.manager</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">High level API for interacting with Proflame fireplaces.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">logging</span> <span class="kn">import</span> <span class="n">Logger</span><span class="p">,</span> <span class="n">getLogger</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">NoReturn</span><span class="p">,</span> <span class="n">Self</span>
+
+<span class="kn">from</span> <span class="nn">.client</span> <span class="kn">import</span> <span class="n">ClientStatus</span><span class="p">,</span> <span class="n">ProflameClient</span>
+<span class="kn">from</span> <span class="nn">.const</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ADJUSTABLE_MODES</span><span class="p">,</span>
+    <span class="n">MAX_FAN_SPEED</span><span class="p">,</span>
+    <span class="n">MAX_FLAME_HEIGHT</span><span class="p">,</span>
+    <span class="n">MAX_LIGHT_BRIGHTNESS</span><span class="p">,</span>
+    <span class="n">MAX_TEMPERATURE</span><span class="p">,</span>
+    <span class="n">MIN_FAN_SPEED</span><span class="p">,</span>
+    <span class="n">MIN_FLAME_HEIGHT</span><span class="p">,</span>
+    <span class="n">MIN_LIGHT_BRIGHTNESS</span><span class="p">,</span>
+    <span class="n">MIN_TEMPERATURE</span><span class="p">,</span>
+    <span class="n">ApiAttrs</span><span class="p">,</span>
+    <span class="n">OperatingMode</span><span class="p">,</span>
+    <span class="n">PilotMode</span><span class="p">,</span>
+    <span class="n">Preset</span><span class="p">,</span>
+    <span class="n">Temperature</span><span class="p">,</span>
+    <span class="n">TemperatureUnit</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">.strings</span> <span class="kn">import</span> <span class="n">INVALID_TEMPERATURE</span><span class="p">,</span> <span class="n">UNKNOWN_TEMPERATURE_UNIT</span>
+<span class="kn">from</span> <span class="nn">.temperature</span> <span class="kn">import</span> <span class="n">Temperature</span>
+<span class="kn">from</span> <span class="nn">.util</span> <span class="kn">import</span> <span class="n">constrain</span>
+
+<span class="n">_LOGGER</span> <span class="o">=</span> <span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="ProflameManager">
+<a class="viewcode-back" href="../../proflame_wifi.html#proflame_wifi.manager.ProflameManager">[docs]</a>
+<span class="k">class</span> <span class="nc">ProflameManager</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;High level API for interacting with Proflame fireplaces.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+        <span class="n">host</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">logger</span><span class="p">:</span> <span class="n">Logger</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">ping_interval</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">callbacks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">Self</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">NoReturn</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a new instance of the ProflamManager class.</span>
+
+<span class="sd">        :param host: The DNS name or IP address of the fireplace.</span>
+<span class="sd">        :type host: str</span>
+<span class="sd">        :param port: The port that the fireplace API listens on.</span>
+<span class="sd">        :type port: int or None</span>
+<span class="sd">        :param logger: A python logger to use for generated messages.</span>
+<span class="sd">        :type: logger: Logger or None</span>
+<span class="sd">        :param ping_interval: The frequency (in seconds) at which keepalive</span>
+<span class="sd">            messages should be sent to the fireplace.</span>
+<span class="sd">        :type ping_interval: int or None</span>
+<span class="sd">        :param callbacks: A list of callback functions which should be invoked</span>
+<span class="sd">            any time a new state update is received from the fireplace.</span>
+<span class="sd">        :type callbacks: list[Callable[[ProflameManager, str, int], NoReturn]]</span>
+<span class="sd">            or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="p">:</span> <span class="n">Logger</span> <span class="o">=</span> <span class="n">logger</span> <span class="ow">or</span> <span class="n">_LOGGER</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stored_fan_speed</span> <span class="o">=</span> <span class="n">MAX_FAN_SPEED</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stored_flame</span> <span class="o">=</span> <span class="n">MAX_FLAME_HEIGHT</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stored_light_brightness</span> <span class="o">=</span> <span class="n">MAX_LIGHT_BRIGHTNESS</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stored_mode</span> <span class="o">=</span> <span class="n">OperatingMode</span><span class="o">.</span><span class="n">MANUAL</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stored_mode_adjustable</span> <span class="o">=</span> <span class="n">OperatingMode</span><span class="o">.</span><span class="n">MANUAL</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_callbacks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">ProflameManager</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">NoReturn</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="o">=</span> <span class="n">ProflameClient</span><span class="p">(</span>
+            <span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">,</span>
+            <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span>
+            <span class="n">logger</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="p">,</span>
+            <span class="n">ping_interval</span><span class="o">=</span><span class="n">ping_interval</span><span class="p">,</span>
+            <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_handle_state_change</span><span class="p">],</span>
+        <span class="p">)</span>
+
+        <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">register_callback</span><span class="p">,</span> <span class="n">callbacks</span> <span class="ow">or</span> <span class="p">[]))</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">current_temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Temperature</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the current temperature reported by the unit. By default this will</span>
+<span class="sd">        be the temperature reported to the fireplace by the Proflame remote&#39;s</span>
+<span class="sd">        thermostat.</span>
+
+<span class="sd">        Can be None if the fireplace has yet to report its recorded</span>
+<span class="sd">        temperature.</span>
+<span class="sd">        </span>
+<span class="sd">        :return: The current room temperature reported to the fireplace.</span>
+<span class="sd">        :rtype: Temperature | None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">temperature</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">(</span><span class="n">ApiAttrs</span><span class="o">.</span><span class="n">CURRENT_TEMPERATURE</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">temperature</span><span class="p">:</span>
+            <span class="n">temperature</span> <span class="o">=</span> <span class="n">temperature</span> <span class="o">/</span> <span class="mi">10</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_unit</span> <span class="o">==</span> <span class="n">TemperatureUnit</span><span class="o">.</span><span class="n">CELSIUS</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">Temperature</span><span class="o">.</span><span class="n">celcius</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_unit</span> <span class="o">==</span> <span class="n">TemperatureUnit</span><span class="o">.</span><span class="n">FAHRENHEIT</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">Temperature</span><span class="o">.</span><span class="n">fahrenheit</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">UNKNOWN_TEMPERATURE_UNIT</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">fan_speed</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the current state of the fireplace fan.</span>
+
+<span class="sd">        Could be None if the fireplace has yet to report the state of the fan.</span>
+<span class="sd">        </span>
+<span class="sd">        :return: The current fan speed reported by the fireplace.</span>
+<span class="sd">        :rtype: int | None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">operating_mode</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">OperatingMode</span><span class="o">.</span><span class="n">OFF</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">(</span><span class="n">ApiAttrs</span><span class="o">.</span><span class="n">FAN_SPEED</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">flame_height</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the current flame height of the fireplace.</span>
+
+<span class="sd">        Could be None if the fireplace has yet to report the state of the</span>
+<span class="sd">        flame.</span>
+<span class="sd">        </span>
+<span class="sd">        :return: The current fan speed reported by the fireplace.</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">operating_mode</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">OperatingMode</span><span class="o">.</span><span class="n">OFF</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">(</span><span class="n">ApiAttrs</span><span class="o">.</span><span class="n">FLAME_HEIGHT</span><span class="p">)</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">full_state</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieve a full copy of all the attributes reported by the fireplace.</span>
+
+<span class="sd">        The fields in the returned object will vary depending on what the</span>
+<span class="sd">        fireplace has reported.</span>
+
+<span class="sd">        :return: A snapshot of the current fireplace state.</span>
+<span class="sd">        :rtype: dict[str, int]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">full_state</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">light_brightness</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the current brightness of the primary light.</span>
+
+<span class="sd">        Could be None if the fireplace has yet to report the state of the</span>
+<span class="sd">        primary light.</span>
+<span class="sd">        </span>
+<span class="sd">        :return: The current brightness of the primary light.</span>
+<span class="sd">        :rtype: int | None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">operating_mode</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">OperatingMode</span><span class="o">.</span><span class="n">OFF</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">(</span><span class="n">ApiAttrs</span><span class="o">.</span><span class="n">LIGHT_BRIGHTNESS</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">operating_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">OperatingMode</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the current main operating mode of the fireplace.</span>
+
+<span class="sd">        Possible operating modes include:</span>
+
+<span class="sd">        * OFF - The main power to the fireplace and all supported accessories</span>
+<span class="sd">          is switched off.</span>
+<span class="sd">        * MANUAL - The fireplace is maintaining a flame height as specified by</span>
+<span class="sd">          the user.</span>
+<span class="sd">        * THERMOSTAT - The fireplace will try to maintain a specific</span>
+<span class="sd">          temperature by switching the flame off and on at the desired height.</span>
+<span class="sd">        * SMART - The fireplace will try to maintain a specific temperature by</span>
+<span class="sd">          dynamically adjusting the height of the flame.</span>
+
+<span class="sd">        Could be None if the fireplace has yet to report its current operating</span>
+<span class="sd">        mode.</span>
+
+<span class="sd">        :return: The current operating mode of the fireplace.</span>
+<span class="sd">        :rtype: OperatingMode</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">(</span><span class="n">ApiAttrs</span><span class="o">.</span><span class="n">OPERATING_MODE</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">pilot_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PilotMode</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the current pilot mode of the fireplace.</span>
+
+<span class="sd">        Possible pilot modes include:</span>
+
+<span class="sd">        * INTERMITENT - The pilot is lit any time the fireplace needs to be</span>
+<span class="sd">          turned on.</span>
+<span class="sd">        * CONTINUOUS - The pilot is always kept lit in a low power state.</span>
+
+<span class="sd">        Could be None if the fireplace has yet to report its current pilot</span>
+<span class="sd">        mode.</span>
+
+<span class="sd">        :return: The pilot mode of the fireplace.</span>
+<span class="sd">        :rtype: PilotMode</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">(</span><span class="n">ApiAttrs</span><span class="o">.</span><span class="n">PILOT_MODE</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">preset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Preset</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets a more generalized summary of the current state of the fireplace.</span>
+
+<span class="sd">        This is primarily intended for home automation systems where some of</span>
+<span class="sd">        the raw behavior reported by the fireplace API might not reflect the</span>
+<span class="sd">        practical state of the fireplace.</span>
+
+<span class="sd">        The return values of this attribute are very similar to those returned</span>
+<span class="sd">        by `operating_mode`. The main difference is that if the fireplace is </span>
+<span class="sd">        in manual mode with the flame turned off then the current fireplace</span>
+<span class="sd">        state is reported as off (other accessories such as light or fan could</span>
+<span class="sd">        be on).</span>
+
+<span class="sd">        Could be None if the fireplace has yet to reportits current operating</span>
+<span class="sd">        mode.</span>
+
+<span class="sd">        :return: A preset which represents the current state of the fireplace</span>
+<span class="sd">            specifically (without accessories factored in).</span>
+<span class="sd">        :rtype: Preset</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cur_mode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">operating_mode</span>
+        <span class="k">if</span> <span class="n">cur_mode</span> <span class="o">==</span> <span class="n">OperatingMode</span><span class="o">.</span><span class="n">OFF</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Preset</span><span class="o">.</span><span class="n">OFF</span>
+        <span class="k">if</span> <span class="n">cur_mode</span> <span class="o">==</span> <span class="n">OperatingMode</span><span class="o">.</span><span class="n">MANUAL</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">flame_height</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Preset</span><span class="o">.</span><span class="n">OFF</span>
+        <span class="k">if</span> <span class="n">cur_mode</span> <span class="o">==</span> <span class="n">OperatingMode</span><span class="o">.</span><span class="n">MANUAL</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Preset</span><span class="o">.</span><span class="n">MANUAL</span>
+        <span class="k">if</span> <span class="n">cur_mode</span> <span class="o">==</span> <span class="n">OperatingMode</span><span class="o">.</span><span class="n">THERMOSTAT</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Preset</span><span class="o">.</span><span class="n">THERMOSTAT</span>
+        <span class="k">if</span> <span class="n">cur_mode</span> <span class="o">==</span> <span class="n">OperatingMode</span><span class="o">.</span><span class="n">SMART</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Preset</span><span class="o">.</span><span class="n">SMART</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ClientStatus</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the current status of the fireplace API connection.</span>
+
+<span class="sd">        :return: The current statis of the fireplace client.</span>
+<span class="sd">        :rtype: ClientStatus</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">status</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">target_temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Temperature</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the currently configured temperature the device is trying to</span>
+<span class="sd">        maintain.</span>
+
+<span class="sd">        Requires an active thermostat (typically the Proflam remote) to be</span>
+<span class="sd">        actively reporting a room temperature to the fireplace.</span>
+
+<span class="sd">        Only applies if the current operating mode is either THEMOSTAT of</span>
+<span class="sd">        SMART, otherwise this will be None. Could also be None if the fireplace</span>
+<span class="sd">        has yet to report its current target temperature.</span>
+
+<span class="sd">        :return: The current temperature the fireplace is trying to maintain</span>
+<span class="sd">            or None if the current fireplace mode does not support mainatining</span>
+<span class="sd">            a target temperature.</span>
+<span class="sd">        :rtype: Temperature | None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">temperature</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">(</span><span class="n">ApiAttrs</span><span class="o">.</span><span class="n">TARGET_TEMPERATURE</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">preset</span> <span class="ow">in</span> <span class="p">[</span><span class="n">Preset</span><span class="o">.</span><span class="n">MANUAL</span><span class="p">,</span> <span class="n">Preset</span><span class="o">.</span><span class="n">OFF</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">temperature</span><span class="p">:</span>
+            <span class="n">temperature</span> <span class="o">=</span> <span class="n">temperature</span> <span class="o">/</span> <span class="mi">10</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_unit</span> <span class="o">==</span> <span class="n">TemperatureUnit</span><span class="o">.</span><span class="n">CELSIUS</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">Temperature</span><span class="o">.</span><span class="n">celcius</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_unit</span> <span class="o">==</span> <span class="n">TemperatureUnit</span><span class="o">.</span><span class="n">FAHRENHEIT</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">Temperature</span><span class="o">.</span><span class="n">fahrenheit</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">MIN_TEMPERATURE</span><span class="o">.</span><span class="n">to_celcius</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">temperature</span> <span class="o">&lt;=</span> <span class="n">MAX_TEMPERATURE</span><span class="o">.</span><span class="n">to_celcius</span><span class="p">():</span>
+                <span class="k">return</span> <span class="n">Temperature</span><span class="o">.</span><span class="n">celcius</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">MIN_TEMPERATURE</span><span class="o">.</span><span class="n">to_fahrenheit</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">temperature</span> <span class="o">&lt;=</span> <span class="n">MAX_TEMPERATURE</span><span class="o">.</span><span class="n">to_fahrenheit</span><span class="p">():</span>
+                <span class="k">return</span> <span class="n">Temperature</span><span class="o">.</span><span class="n">fahrenheit</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">INVALID_TEMPERATURE</span><span class="p">,</span> <span class="n">temperature</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">temperature_unit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TemperatureUnit</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the temperature unit the device is configured to use.</span>
+
+<span class="sd">        Could be None if the fireplace has yet to report its current</span>
+<span class="sd">        temperature unit.</span>
+
+<span class="sd">        :return: The current temperature unit used by the fireplace.</span>
+<span class="sd">        :rtype: TemperatureUnit | None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state</span><span class="p">(</span><span class="n">ApiAttrs</span><span class="o">.</span><span class="n">TEMPERATURE_UNIT</span><span class="p">)</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">uri</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the formatted URI for the fireplace websocket.</span>
+
+<span class="sd">        :return: The fireplace websocket URI.</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">uri</span>
+    
+    <span class="k">def</span> <span class="nf">_handle_state_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">:</span> <span class="n">ProflameClient</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Callback function for state change events reported by the internal</span>
+<span class="sd">        client.</span>
+
+<span class="sd">        Runs housekeeping tasks related to the manager and invokes all user</span>
+<span class="sd">        registered callback functions.</span>
+
+<span class="sd">        :param client: The ProflameClient object that reported the state</span>
+<span class="sd">            update.</span>
+<span class="sd">        :type client: ProflameClient</span>
+<span class="sd">        :param key: The fireplace state attribute that received an update.</span>
+<span class="sd">        :type key: str</span>
+<span class="sd">        :param value: The new value of for the given fireplace attribute.</span>
+<span class="sd">        :type value: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_track_state</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">callback</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_callbacks</span><span class="p">:</span>
+            <span class="n">callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_track_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Track specific state changes to provide enhanced functionality.</span>
+
+<span class="sd">        Primarily used for restoring previous states when switching between</span>
+<span class="sd">        modes and more advanced functionality must be overridden.</span>
+
+<span class="sd">        Provides the ability to return to a previous state at a later time.</span>
+
+<span class="sd">        :param key: The fireplace state attribute that received an update.</span>
+<span class="sd">        :type key: str</span>
+<span class="sd">        :param value: The new value of for the given fireplace attribute.</span>
+<span class="sd">        :type value: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">ApiAttrs</span><span class="o">.</span><span class="n">FAN_SPEED</span> <span class="ow">and</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_stored_fan_speed</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">ApiAttrs</span><span class="o">.</span><span class="n">FLAME_HEIGHT</span> <span class="ow">and</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_stored_flame</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">ApiAttrs</span><span class="o">.</span><span class="n">LIGHT_BRIGHTNESS</span> <span class="ow">and</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_stored_light_brightness</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">ApiAttrs</span><span class="o">.</span><span class="n">OPERATING_MODE</span> <span class="ow">and</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">value</span> <span class="o">==</span> <span class="n">OperatingMode</span><span class="o">.</span><span class="n">MANUAL</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">flame_height</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_stored_mode</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">ADJUSTABLE_MODES</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">flame_height</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_stored_mode_adjustable</span> <span class="o">=</span> <span class="n">value</span>
+
+<div class="viewcode-block" id="ProflameManager.connect">
+<a class="viewcode-back" href="../../proflame_wifi.html#proflame_wifi.manager.ProflameManager.connect">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Open a connection to the fireplace.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="ProflameManager.disconnect">
+<a class="viewcode-back" href="../../proflame_wifi.html#proflame_wifi.manager.ProflameManager.disconnect">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">disconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Close the connection to the fireplace.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="ProflameManager.is_on">
+<a class="viewcode-back" href="../../proflame_wifi.html#proflame_wifi.manager.ProflameManager.is_on">[docs]</a>
+    <span class="k">def</span> <span class="nf">is_on</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return true if the fireplace is on.</span>
+
+<span class="sd">        Could be None if the fireplace has not reported enough information to</span>
+<span class="sd">        determine its current state.</span>
+
+<span class="sd">        :return: True if the fireplace is on, False if the fireplace is off,</span>
+<span class="sd">            or None if the current state of the fireplace is unknown.</span>
+<span class="sd">        :rtype: bool or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">operating_mode</span>
+        <span class="k">return</span> <span class="kc">None</span> <span class="k">if</span> <span class="n">mode</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">bool</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="ProflameManager.get_state">
+<a class="viewcode-back" href="../../proflame_wifi.html#proflame_wifi.manager.ProflameManager.get_state">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attribute</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the state of a specific attribute by its name.</span>
+
+<span class="sd">        :param attribute: The name of the fireplace attribute to retrieve.</span>
+<span class="sd">        :type attribute: str</span>
+<span class="sd">        :return: The value of the requested attribute or None if the requested</span>
+<span class="sd">            attribute has not been reported by the fireplace.</span>
+<span class="sd">        :rtype: int or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">get_state</span><span class="p">(</span><span class="n">attribute</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ProflameManager.register_callback">
+<a class="viewcode-back" href="../../proflame_wifi.html#proflame_wifi.manager.ProflameManager.register_callback">[docs]</a>
+    <span class="k">def</span> <span class="nf">register_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Self</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">NoReturn</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Register a callback that will be invoked when a state change is</span>
+<span class="sd">        reported by the fireplace.</span>
+
+<span class="sd">        :param callback: The function to invoke whenever a state change is</span>
+<span class="sd">            reported by the fireplace.</span>
+<span class="sd">        :type callback: Callable[[ProflameManager, str, int], NoReturn]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_callbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ProflameManager.set_fan_speed">
+<a class="viewcode-back" href="../../proflame_wifi.html#proflame_wifi.manager.ProflameManager.set_fan_speed">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">set_fan_speed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">speed</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">wait</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the desired speed of the fireplace fan.</span>
+<span class="sd">        </span>
+<span class="sd">        :param speed: The new fireplace fan speed to set.</span>
+<span class="sd">        :type speed: int</span>
+<span class="sd">        :param wait: Whether to wait for the fireplace to confirm a change to</span>
+<span class="sd">            the state of the fan.</span>
+<span class="sd">        :type wait: bool</span>
+<span class="sd">        :param wait_timeout: The duration (in seconds) to wait for the</span>
+<span class="sd">            fireplace to report back an update on the state of the fan.</span>
+<span class="sd">        :type wait_timeout: float</span>
+<span class="sd">        :return: The new state of the fan as reported by the fireplace (if wait</span>
+<span class="sd">            is set to True), False if a timeout was encountered while waiting</span>
+<span class="sd">            for the fireplace to confirm the state update, or None if the</span>
+<span class="sd">            update was made without waiting for confirmation from the</span>
+<span class="sd">            fireplace.</span>
+<span class="sd">        :rtype: int or bool or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">constrained</span> <span class="o">=</span> <span class="n">constrain</span><span class="p">(</span><span class="n">speed</span><span class="p">,</span> <span class="n">MIN_FAN_SPEED</span><span class="p">,</span> <span class="n">MAX_FAN_SPEED</span><span class="p">)</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">ApiAttrs</span><span class="o">.</span><span class="n">FAN_SPEED</span><span class="p">,</span> <span class="n">constrained</span><span class="p">,</span> <span class="n">wait</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ProflameManager.set_flame_height">
+<a class="viewcode-back" href="../../proflame_wifi.html#proflame_wifi.manager.ProflameManager.set_flame_height">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">set_flame_height</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">wait</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the desired height of the fireplace flame.</span>
+<span class="sd">        </span>
+<span class="sd">        Only applies when the fireplace is in a mode where the flame height is</span>
+<span class="sd">        user adjustable.</span>
+<span class="sd">        </span>
+<span class="sd">        :param height: The new fireplace flame height to set.</span>
+<span class="sd">        :type height: int</span>
+<span class="sd">        :param wait: Whether to wait for the fireplace to confirm a change to</span>
+<span class="sd">            the state of the flame.</span>
+<span class="sd">        :type wait: bool</span>
+<span class="sd">        :param wait_timeout: The duration (in seconds) to wait for the</span>
+<span class="sd">            fireplace to report back an update on the state of the flame.</span>
+<span class="sd">        :type wait_timeout: float</span>
+<span class="sd">        :return: The new state of the flame as reported by the fireplace (if</span>
+<span class="sd">            wait is set to True), False if a timeout was encountered while</span>
+<span class="sd">            waiting for the fireplace to confirm the state update, or None if</span>
+<span class="sd">            the update was made without waiting for confirmation from the</span>
+<span class="sd">            fireplace.</span>
+<span class="sd">        :rtype: int or bool or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">constrained</span> <span class="o">=</span> <span class="n">constrain</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">MIN_FLAME_HEIGHT</span><span class="p">,</span> <span class="n">MAX_FLAME_HEIGHT</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">ApiAttrs</span><span class="o">.</span><span class="n">FLAME_HEIGHT</span><span class="p">,</span> <span class="n">constrained</span><span class="p">,</span> <span class="n">wait</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">constrained</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">operating_mode</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ADJUSTABLE_MODES</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_operating_mode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_stored_mode_adjustable</span><span class="p">,</span> <span class="n">wait</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="ProflameManager.set_light_brightness">
+<a class="viewcode-back" href="../../proflame_wifi.html#proflame_wifi.manager.ProflameManager.set_light_brightness">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">set_light_brightness</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">brightness</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">wait</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the desired brightness of the fireplace primary light.</span>
+<span class="sd">        </span>
+<span class="sd">        :param brightness: The new fireplace light brightness to set.</span>
+<span class="sd">        :type brightness: int</span>
+<span class="sd">        :param wait: Whether to wait for the fireplace to confirm a change to</span>
+<span class="sd">            the state of the light.</span>
+<span class="sd">        :type wait: bool</span>
+<span class="sd">        :param wait_timeout: The duration (in seconds) to wait for the</span>
+<span class="sd">            fireplace to report back an update on the state of the light.</span>
+<span class="sd">        :type wait_timeout: float</span>
+<span class="sd">        :return: The new state of the light as reported by the fireplace (if</span>
+<span class="sd">            wait is set to True), False if a timeout was encountered while</span>
+<span class="sd">            waiting for the fireplace to confirm the state update, or None if</span>
+<span class="sd">            the update was made without waiting for confirmation from the</span>
+<span class="sd">            fireplace.</span>
+<span class="sd">        :rtype: int or bool or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">constrained</span> <span class="o">=</span> <span class="n">constrain</span><span class="p">(</span><span class="n">brightness</span><span class="p">,</span> <span class="n">MIN_LIGHT_BRIGHTNESS</span><span class="p">,</span> <span class="n">MAX_LIGHT_BRIGHTNESS</span><span class="p">)</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">ApiAttrs</span><span class="o">.</span><span class="n">LIGHT_BRIGHTNESS</span><span class="p">,</span> <span class="n">constrained</span><span class="p">,</span> <span class="n">wait</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ProflameManager.set_operating_mode">
+<a class="viewcode-back" href="../../proflame_wifi.html#proflame_wifi.manager.ProflameManager.set_operating_mode">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">set_operating_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="n">OperatingMode</span><span class="p">,</span> <span class="n">wait</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">OperatingMode</span> <span class="o">|</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the primary operating mode of the fireplace unit as a whole.</span>
+<span class="sd">        </span>
+<span class="sd">        :param mode: The new fireplace operating mode to set.</span>
+<span class="sd">        :type mode: OperatingMode</span>
+<span class="sd">        :param wait: Whether to wait for the fireplace to confirm a change to</span>
+<span class="sd">            the state of the unit.</span>
+<span class="sd">        :type wait: bool</span>
+<span class="sd">        :param wait_timeout: The duration (in seconds) to wait for the</span>
+<span class="sd">            fireplace to report back an update on the state of the unit.</span>
+<span class="sd">        :type wait_timeout: float</span>
+<span class="sd">        :return: The new state of the unit as reported by the fireplace (if</span>
+<span class="sd">            wait is set to True), False if a timeout was encountered while</span>
+<span class="sd">            waiting for the fireplace to confirm the state update, or None if</span>
+<span class="sd">            the update was made without waiting for confirmation from the</span>
+<span class="sd">            fireplace.</span>
+<span class="sd">        :rtype: int or bool or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">ApiAttrs</span><span class="o">.</span><span class="n">OPERATING_MODE</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">wait</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ProflameManager.set_pilot_mode">
+<a class="viewcode-back" href="../../proflame_wifi.html#proflame_wifi.manager.ProflameManager.set_pilot_mode">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">set_pilot_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="n">PilotMode</span><span class="p">,</span> <span class="n">wait</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PilotMode</span> <span class="o">|</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the operating behavior of the fireplace pilor light.</span>
+<span class="sd">        </span>
+<span class="sd">        :param mode: The new pilot mode to set.</span>
+<span class="sd">        :type mode: PilotMode</span>
+<span class="sd">        :param wait: Whether to wait for the fireplace to confirm a change to</span>
+<span class="sd">            the state of the pilot.</span>
+<span class="sd">        :type wait: bool</span>
+<span class="sd">        :param wait_timeout: The duration (in seconds) to wait for the</span>
+<span class="sd">            fireplace to report back an update on the state of the pilot.</span>
+<span class="sd">        :type wait_timeout: float</span>
+<span class="sd">        :return: The new state of the pilot as reported by the fireplace (if</span>
+<span class="sd">            wait is set to True), False if a timeout was encountered while</span>
+<span class="sd">            waiting for the fireplace to confirm the state update, or None if</span>
+<span class="sd">            the update was made without waiting for confirmation from the</span>
+<span class="sd">            fireplace.</span>
+<span class="sd">        :rtype: int or bool or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">ApiAttrs</span><span class="o">.</span><span class="n">PILOT_MODE</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">wait</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ProflameManager.set_preset">
+<a class="viewcode-back" href="../../proflame_wifi.html#proflame_wifi.manager.ProflameManager.set_preset">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">set_preset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preset</span><span class="p">:</span> <span class="n">Preset</span><span class="p">,</span> <span class="n">wait</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the fireplace state to a general desired state.</span>
+
+<span class="sd">        This is primarily intended for home automation systems and provides a</span>
+<span class="sd">        warpper for functionality that makes transitioning between states</span>
+<span class="sd">        easier.</span>
+
+<span class="sd">        It provides the basic functionality of operating modes while targeting</span>
+<span class="sd">        the fireplace specifically, without affecting any connected</span>
+<span class="sd">        accessories.</span>
+
+<span class="sd">        For example, when switching to an off state with accessories running</span>
+<span class="sd">        this will turn off the flame while leaving accessories running. When</span>
+<span class="sd">        switching back to an on state the flame values will be retored to what</span>
+<span class="sd">        was in use before getting turned off.</span>
+<span class="sd">        </span>
+<span class="sd">        :param preset: The name of the preset mode to switch to.</span>
+<span class="sd">        :type preset: Preset</span>
+<span class="sd">        :param wait: Whether to wait for the fireplace to confirm changes made</span>
+<span class="sd">            to its state.</span>
+<span class="sd">        :type wait: bool</span>
+<span class="sd">        :param wait_timeout: The duration (in seconds) to wait for the</span>
+<span class="sd">            fireplace to report back updates to its state. If multiple updates</span>
+<span class="sd">            need to made made to satisfy the preset each update will wait this</span>
+<span class="sd">            duration.</span>
+<span class="sd">        :type wait_timeout: float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">preset</span> <span class="o">==</span> <span class="n">Preset</span><span class="o">.</span><span class="n">OFF</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">operating_mode</span> <span class="o">!=</span> <span class="n">OperatingMode</span><span class="o">.</span><span class="n">OFF</span><span class="p">:</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_flame_height</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">wait</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">)</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_operating_mode</span><span class="p">(</span><span class="n">OperatingMode</span><span class="o">.</span><span class="n">MANUAL</span><span class="p">,</span> <span class="n">wait</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">preset</span> <span class="o">==</span> <span class="n">Preset</span><span class="o">.</span><span class="n">MANUAL</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">flame_height</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_flame_height</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_stored_flame</span><span class="p">,</span> <span class="n">wait</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">)</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_operating_mode</span><span class="p">(</span><span class="n">OperatingMode</span><span class="o">.</span><span class="n">MANUAL</span><span class="p">,</span> <span class="n">wait</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">preset</span> <span class="o">==</span> <span class="n">Preset</span><span class="o">.</span><span class="n">THERMOSTAT</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">flame_height</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_flame_height</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_stored_flame</span><span class="p">,</span> <span class="n">wait</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">)</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_operating_mode</span><span class="p">(</span><span class="n">OperatingMode</span><span class="o">.</span><span class="n">THERMOSTAT</span><span class="p">,</span> <span class="n">wait</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">preset</span> <span class="o">==</span> <span class="n">Preset</span><span class="o">.</span><span class="n">SMART</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_operating_mode</span><span class="p">(</span><span class="n">OperatingMode</span><span class="o">.</span><span class="n">SMART</span><span class="p">,</span> <span class="n">wait</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="ProflameManager.set_state">
+<a class="viewcode-back" href="../../proflame_wifi.html#proflame_wifi.manager.ProflameManager.set_state">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">set_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attribute</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">wait</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the state of a specific attribute by its name.</span>
+
+<span class="sd">        :param attribute: The name of the fireplace attribute to set.</span>
+<span class="sd">        :type attribute: str</span>
+<span class="sd">        :param value: The new value to set for the specifies attribute.</span>
+<span class="sd">        :type value: int</span>
+<span class="sd">        :return: The new state of the attribute as reported by the fireplace</span>
+<span class="sd">            (if wait is set to True), False if a timeout was encountered while</span>
+<span class="sd">            waiting for the fireplace to confirm the state update, or None if</span>
+<span class="sd">            the update was made without waiting for confirmation from the</span>
+<span class="sd">            fireplace.</span>
+<span class="sd">        :rtype: int or bool or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">wait</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ProflameManager.set_target_temperature">
+<a class="viewcode-back" href="../../proflame_wifi.html#proflame_wifi.manager.ProflameManager.set_target_temperature">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">set_target_temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">temperature</span><span class="p">:</span> <span class="n">Temperature</span><span class="p">,</span> <span class="n">wait</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Temperature</span> <span class="o">|</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the desired temperature for themostat based modes.</span>
+
+<span class="sd">        :param temperature: The new temperature that the fireplace should try</span>
+<span class="sd">            to maintain.</span>
+<span class="sd">        :type temperature: Temperature</span>
+<span class="sd">        :param wait: Whether to wait for the fireplace to confirm a change to</span>
+<span class="sd">            the target temperature.</span>
+<span class="sd">        :type wait: bool</span>
+<span class="sd">        :param wait_timeout: The duration (in seconds) to wait for the</span>
+<span class="sd">            fireplace to report back an update on the state of the target</span>
+<span class="sd">            temperature.</span>
+<span class="sd">        :type wait_timeout: float</span>
+<span class="sd">        :return: The new target temperature as reported by the fireplace (if</span>
+<span class="sd">            wait is set to True), False if a timeout was encountered while</span>
+<span class="sd">            waiting for the fireplace to confirm the state update, or None if</span>
+<span class="sd">            the update was made without waiting for confirmation from the</span>
+<span class="sd">            fireplace.</span>
+<span class="sd">        :rtype: Temperature or bool or None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_unit</span> <span class="o">==</span> <span class="n">TemperatureUnit</span><span class="o">.</span><span class="n">CELSIUS</span><span class="p">:</span>
+            <span class="n">requested</span> <span class="o">=</span> <span class="n">temperature</span><span class="o">.</span><span class="n">to_celcius</span><span class="p">()</span>
+            <span class="n">min_temp</span> <span class="o">=</span> <span class="n">MIN_TEMPERATURE</span><span class="o">.</span><span class="n">to_celcius</span><span class="p">()</span>
+            <span class="n">max_temp</span> <span class="o">=</span> <span class="n">MAX_TEMPERATURE</span><span class="o">.</span><span class="n">to_celcius</span><span class="p">()</span>
+            <span class="n">constrained</span> <span class="o">=</span> <span class="n">constrain</span><span class="p">(</span><span class="n">requested</span><span class="p">,</span> <span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">ApiAttrs</span><span class="o">.</span><span class="n">TARGET_TEMPERATURE</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">constrained</span> <span class="o">*</span> <span class="mi">10</span><span class="p">),</span> <span class="n">wait</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">Temperature</span><span class="o">.</span><span class="n">celcius</span><span class="p">(</span><span class="n">result</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">else</span> <span class="n">result</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature_unit</span> <span class="o">==</span> <span class="n">TemperatureUnit</span><span class="o">.</span><span class="n">FAHRENHEIT</span><span class="p">:</span>
+            <span class="n">requested</span> <span class="o">=</span> <span class="n">temperature</span><span class="o">.</span><span class="n">to_fahrenheit</span><span class="p">()</span>
+            <span class="n">min_temp</span> <span class="o">=</span> <span class="n">MIN_TEMPERATURE</span><span class="o">.</span><span class="n">to_fahrenheit</span><span class="p">()</span>
+            <span class="n">max_temp</span> <span class="o">=</span> <span class="n">MAX_TEMPERATURE</span><span class="o">.</span><span class="n">to_fahrenheit</span><span class="p">()</span>
+            <span class="n">constrained</span> <span class="o">=</span> <span class="n">constrain</span><span class="p">(</span><span class="n">requested</span><span class="p">,</span> <span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_state</span><span class="p">(</span><span class="n">ApiAttrs</span><span class="o">.</span><span class="n">TARGET_TEMPERATURE</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">constrained</span> <span class="o">*</span> <span class="mi">10</span><span class="p">),</span> <span class="n">wait</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">Temperature</span><span class="o">.</span><span class="n">fahrenheit</span><span class="p">(</span><span class="n">result</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">else</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="ProflameManager.turn_off">
+<a class="viewcode-back" href="../../proflame_wifi.html#proflame_wifi.manager.ProflameManager.turn_off">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">turn_off</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wait</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Turn off the main power of the fireplace unit.</span>
+
+<span class="sd">        :param wait: Whether to wait for the fireplace to confirm a change to</span>
+<span class="sd">            the requested change.</span>
+<span class="sd">        :type wait: bool</span>
+<span class="sd">        :param wait_timeout: The duration (in seconds) to wait for the</span>
+<span class="sd">            fireplace to report back an update on the requested change.</span>
+<span class="sd">        :type wait_timeout: float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_operating_mode</span><span class="p">(</span><span class="n">OperatingMode</span><span class="o">.</span><span class="n">OFF</span><span class="p">,</span> <span class="n">wait</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ProflameManager.turn_off_fan">
+<a class="viewcode-back" href="../../proflame_wifi.html#proflame_wifi.manager.ProflameManager.turn_off_fan">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">turn_off_fan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wait</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the speed of the fan to 0</span>
+
+<span class="sd">        :param wait: Whether to wait for the fireplace to confirm a change to</span>
+<span class="sd">            the requested change.</span>
+<span class="sd">        :type wait: bool</span>
+<span class="sd">        :param wait_timeout: The duration (in seconds) to wait for the</span>
+<span class="sd">            fireplace to report back an update on the requested change.</span>
+<span class="sd">        :type wait_timeout: float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_fan_speed</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">wait</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ProflameManager.turn_off_light">
+<a class="viewcode-back" href="../../proflame_wifi.html#proflame_wifi.manager.ProflameManager.turn_off_light">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">turn_off_light</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wait</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the brightness of the primary light to 0.</span>
+
+<span class="sd">        :param wait: Whether to wait for the fireplace to confirm a change to</span>
+<span class="sd">            the requested change.</span>
+<span class="sd">        :type wait: bool</span>
+<span class="sd">        :param wait_timeout: The duration (in seconds) to wait for the</span>
+<span class="sd">            fireplace to report back an update on the requested change.</span>
+<span class="sd">        :type wait_timeout: float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_light_brightness</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">wait</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ProflameManager.turn_on">
+<a class="viewcode-back" href="../../proflame_wifi.html#proflame_wifi.manager.ProflameManager.turn_on">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">turn_on</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wait</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Turn on the main power of the fireplace unit.</span>
+
+<span class="sd">        :param wait: Whether to wait for the fireplace to confirm a change to</span>
+<span class="sd">            the requested change.</span>
+<span class="sd">        :type wait: bool</span>
+<span class="sd">        :param wait_timeout: The duration (in seconds) to wait for the</span>
+<span class="sd">            fireplace to report back an update on the requested change.</span>
+<span class="sd">        :type wait_timeout: float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_operating_mode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_stored_mode</span><span class="p">,</span> <span class="n">wait</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ProflameManager.turn_on_fan">
+<a class="viewcode-back" href="../../proflame_wifi.html#proflame_wifi.manager.ProflameManager.turn_on_fan">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">turn_on_fan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wait</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the speed of the fan to the last known active speed.</span>
+
+<span class="sd">        :param wait: Whether to wait for the fireplace to confirm a change to</span>
+<span class="sd">            the requested change.</span>
+<span class="sd">        :type wait: bool</span>
+<span class="sd">        :param wait_timeout: The duration (in seconds) to wait for the</span>
+<span class="sd">            fireplace to report back an update on the requested change.</span>
+<span class="sd">        :type wait_timeout: float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_fan_speed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_stored_fan_speed</span><span class="p">,</span> <span class="n">wait</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ProflameManager.turn_on_light">
+<a class="viewcode-back" href="../../proflame_wifi.html#proflame_wifi.manager.ProflameManager.turn_on_light">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">turn_on_light</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wait</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the brightness of the primary light to last known active</span>
+<span class="sd">        brightness.</span>
+
+<span class="sd">        :param wait: Whether to wait for the fireplace to confirm a change to</span>
+<span class="sd">            the requested change.</span>
+<span class="sd">        :type wait: bool</span>
+<span class="sd">        :param wait_timeout: The duration (in seconds) to wait for the</span>
+<span class="sd">            fireplace to report back an update on the requested change.</span>
+<span class="sd">        :type wait_timeout: float</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_light_brightness</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_stored_light_brightness</span><span class="p">,</span> <span class="n">wait</span><span class="p">,</span> <span class="n">wait_timeout</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="ProflameManager.wait_for_active">
+<a class="viewcode-back" href="../../proflame_wifi.html#proflame_wifi.manager.ProflameManager.wait_for_active">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">wait_for_active</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Wait for the fireplace connection to become active.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">wait_for_active</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="ProflameManager.wait_for_state_available">
+<a class="viewcode-back" href="../../proflame_wifi.html#proflame_wifi.manager.ProflameManager.wait_for_state_available">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">wait_for_state_available</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Wait until a specified state key is available from the API.</span>
+
+<span class="sd">        On connection the fireplace will send multiple messages after a</span>
+<span class="sd">        connection becomes active to report the state of all supported</span>
+<span class="sd">        functionality.</span>
+
+<span class="sd">        :param field: The attribute that you want to wait to become available</span>
+<span class="sd">            from the fireplace.</span>
+<span class="sd">        :type wait: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">wait_for_state_available</span><span class="p">(</span><span class="n">field</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Kevin Lucas.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
