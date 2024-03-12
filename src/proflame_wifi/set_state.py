@@ -24,7 +24,6 @@ async def set_state(host: str, port: int, field: str, value: int):
     :type value: int
     """
     client = ProflameManager(
-        device_id='temp',
         host=host,
         port=port,
     )

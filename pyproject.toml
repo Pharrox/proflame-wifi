@@ -1,3 +1,9 @@
 [build-system]
 requires = ["setuptools>=46.4.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tool.check-manifest]
+ignore = [
+    ".releaserc",
+    "docs/**/*"
+]

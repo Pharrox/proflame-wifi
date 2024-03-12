@@ -20,7 +20,6 @@ async def get_state(host: str, port: int) -> None:
     :type port: int
     """
     client = ProflameClient(
-        device_id='temp',
         host=host,
         port=port
     )
