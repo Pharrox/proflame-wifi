@@ -1,0 +1,12 @@
+{
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": true,
+    //"python.testing.pytestArgs": [
+    //  "-v",
+    //  "--cov=src/proflame_wifi",
+    //  "--cov-report=term-missing",
+    //  "tests"
+    //],
+    "python.envFile": "${workspaceRoot}/vscode.env"
+  }
