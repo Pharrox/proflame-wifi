@@ -40,6 +40,10 @@ setuptools.setup(
     install_requires=['websockets>=12.0'],
     extras_require={
         'dev': ['check-manifest'],
+        'docs': [
+            'Sphinx',
+            'sphinx-rtd-theme',
+        ],
         'test': [
             'coverage',
             'pytest-cov',
