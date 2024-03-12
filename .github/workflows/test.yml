@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.0
       - name: Setup Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
       - name: Install Tox and any other packages
@@ -55,7 +55,7 @@ jobs:
           TARGET: ${{ github.workspace }}/src/proflame_wifi/__init__.py
         run: sed -ri "s/__version__\s*=\s[\"'][^\"']+[\"']/__version__ = '${NEW_VERSION}'/" "${TARGET}"
       - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.semantic_release.outputs.new_release_git_tag }}
           name: Release ${{ steps.semantic_release.outputs.new_release_git_tag }}
