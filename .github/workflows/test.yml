@@ -42,6 +42,7 @@ jobs:
           semantic_version: 23.0.2
       - name: Make Release Body
         shell: bash
+        if: ${{ steps.semantic_release.outputs.new_release_git_tag }}
         env:
           PREV_RELEASE: ${{ steps.semantic_release.outputs.last_release_git_tag }}
           CUR_RELEASE: ${{ steps.semantic_release.outputs.new_release_git_tag }}
