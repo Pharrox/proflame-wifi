@@ -51,12 +51,14 @@ jobs:
           git log --pretty=format:%s "${PREV_RELEASE}..${CUR_RELEASE}" | sed 's/^/ - /' >> release-body.txt
       - name: "Adjust version number"
         shell: "bash"
+        if: ${{ steps.semantic_release.outputs.new_release_git_tag }}
         env:
           CUR_VERSION: ${{ steps.semantic_release.outputs.new_release_version }}
           TARGET: ${{ github.workspace }}/src/proflame_wifi/__init__.py
         run: sed -ri "s/__version__\s*=\s[\"'][^\"']+[\"']/__version__ = '${NEW_VERSION}'/" "${TARGET}"
       - name: Create Release
         uses: softprops/action-gh-release@v2
+        if: ${{ steps.semantic_release.outputs.new_release_git_tag }}
         with:
           tag_name: ${{ steps.semantic_release.outputs.new_release_git_tag }}
           name: Release ${{ steps.semantic_release.outputs.new_release_git_tag }}
