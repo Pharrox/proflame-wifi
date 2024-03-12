@@ -55,7 +55,7 @@ jobs:
         env:
           CUR_VERSION: ${{ steps.semantic_release.outputs.new_release_version }}
           TARGET: ${{ github.workspace }}/src/proflame_wifi/__init__.py
-        run: sed -ri "s/__version__\s*=\s[\"'][^\"']+[\"']/__version__ = '${NEW_VERSION}'/" "${TARGET}"
+        run: sed -ri "s/__version__\s*=\s[\"'][^\"']+[\"']/__version__ = '${CUR_VERSION}'/" "${TARGET}"
       - name: Create Release
         uses: softprops/action-gh-release@v2
         if: ${{ steps.semantic_release.outputs.new_release_git_tag }}
