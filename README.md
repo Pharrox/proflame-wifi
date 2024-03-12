@@ -15,7 +15,7 @@ Client for connecting to and interacting with Proflame fireplaces that have the 
 [buymecoffeebadge]: https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg?style=for-the-badge
 [commits-shield]: https://img.shields.io/github/commit-activity/y/Pharrox/proflame-wifi.svg?style=for-the-badge
 [commits]: https://github.com/Pharrox/proflame-wifi/commits/master
-[license-shield]: https://img.shields.io/github/license/Pharrox/hass-proflame-connect-wifi.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/Pharrox/proflame-wifi.svg?style=for-the-badge
 [maintenance-shield]: https://img.shields.io/badge/maintainer-Kevin%20Lucas%20%40Pharrox-blue.svg?style=for-the-badge
-[releases-shield]: https://img.shields.io/github/release/Pharrox/hass-proflame-connect-wifi.svg?style=for-the-badge
+[releases-shield]: https://img.shields.io/github/release/Pharrox/proflame-wifi.svg?style=for-the-badge
 [releases]: https://github.com/Pharrox/proflame-wifi/releases
